@@ -1,7 +1,10 @@
 import React,{useState} from 'react'
 import './register.css'
 import axios from 'axios'
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router-dom';
+import doctor from '../Images/doctor.svg';
+import '../..//../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../..//../node_modules/bootstrap/dist/js/bootstrap.min.js';
 function Register() {
     const history = useHistory()
     const [user, setUser] = useState({
@@ -35,16 +38,22 @@ function Register() {
         
     }
     return (
+        <center>
+            <div className="images">
+                <img src={doctor} alt='d' />
+            </div>
+            <div className="onlypadding">
         <div className="register">
+           
            <h1>Register</h1>
-           <input type="name" name="name" value={user.name} placeholder="Enter Your Name" onChange={handleChange}></input>
+          <input type="name" name="name" value={user.name} placeholder="Enter Your Name" onChange={handleChange}></input>
            <input type="email" name="email" value={user.email} placeholder="Enter Your Email"onChange={handleChange}></input>
            <input type="password" name="password" value={user.password} placeholder="Enter Your Password"onChange={handleChange}></input>
            <input type="text" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re Enter your password"onChange={handleChange}></input>
             <div className="Button" onClick={register}>Register</div>
             <div>or</div>
             <div className="Button" onClick={()=> history.push("/login")}>Login</div>
-        </div>
+        </div></div></center>
     )
 }
 
