@@ -2,9 +2,10 @@ import React,{useState} from 'react'
 import './register.css'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom';
-import doctor from '../Images/doctor.svg';
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Container, Row, Col } from 'reactstrap';
+import doctor from '../images/doctor.svg';
+import '../..//../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../..//../node_modules/bootstrap/dist/js/bootstrap.min.js';
 function Register() {
     const [dropdown, setDropdownOpen] = useState(false);
     const toggle = () => setDropdownOpen(prevState => !prevState);
