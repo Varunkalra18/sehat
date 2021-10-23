@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import './register.css'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom';
-import doctor from '../Images/doctor.svg';
+import doctor from '../images/doctor.svg';
 import '../..//../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../..//../node_modules/bootstrap/dist/js/bootstrap.min.js';
 function Register() {
