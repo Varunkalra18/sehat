@@ -1,7 +1,8 @@
 import express from 'express'
 import cors from "cors"
 import mongoose from "mongoose"
-
+import jwt from jsonwebtoken
+//import { getName} from './middleware'
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded())
@@ -31,14 +32,16 @@ app.post("/login", (req,res)=>{
         {
             if(password === user.password)
             {
-                res.send({message:"Login Successfull", user:user} )
+                const token = jwt.sign(user,"secret1999g13");
+                user = {...user,token} ;
+                res.send(user)
             }
             else{
-                res.send({message:"Password didn't match"})
+                res.send({message:"Password didn't match", code:404})
             }
         }
         else{
-            res.send({message:"user doesnot exist"})
+            res.send({message:"user doesnot exist", code:500})
         }
     })
 })

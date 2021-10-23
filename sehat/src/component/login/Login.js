@@ -24,7 +24,20 @@ function Login() {
         if(email && password)
         {
             axios.post("http://localhost:9002/login",user)
-            .then(res => alert(res.data.message))
+            // .then(res => alert(res.data.message))
+            .then((res) => {
+                if(res.data.code == 404)
+                {
+                    alert("Invalid Password") ;
+                }
+                else if(res.data.code == 500)
+                {
+                    alert("User Not Found") ;
+                }
+                else{
+                    history.push("/")
+                }
+            })
         }
         else{
             alert("Enter Credentials Correctly")
