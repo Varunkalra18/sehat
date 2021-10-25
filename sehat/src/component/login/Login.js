@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import './login.css'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
-
-function Login() {
+import userlogin from '../images/userlogin.svg'
+ function Login() {
     const history = useHistory()
     const [user, setUser] = useState({
         email:"",
@@ -31,6 +31,13 @@ function Login() {
         }
     }
     return (
+        <center>
+            <div className="all">
+            <div className="images">
+                <img src={userlogin} alt='login'/>
+                </div>
+       <div className="onlypadding">
+       
         <div className="Login">
             <h1>Login</h1>
             <div>
@@ -40,7 +47,9 @@ function Login() {
             <div className="Button" onClick={login}>Login</div>
             <h6>Or</h6>
             <div className="Button" onClick={() => history.push("/register")}>Register</div>
+        </div></div>
         </div>
+        </center>
     )
 }
 

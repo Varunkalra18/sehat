@@ -3,45 +3,22 @@ import axios from 'axios'
 import '../css/bootstrap.css'
 import '../css/fontawesome-all.css'
 import '../css/style.css'
+import { useHistory, withRouter } from 'react-router';
+import '../css/All.css'
 
-function Appointment()
+let Appointment=()=>
 {
+  let history=useHistory()
+  function handleClick(){
+    history.push("/")
+  }
     return(
-        <div>
+     <div>
         <title>Sehat-appointment</title>
         {/* Meta tag Keywords */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-        <meta name="keywords" content="Sehat appointment page" />
-        {/*// Meta tag Keywords */}
-        {/* Custom-Files */}
-        <link rel="stylesheet" href="css/bootstrap.css" />
-        {/* Bootstrap-Core-CSS */}
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-        {/* Style-CSS */}
-        <link rel="stylesheet" href="css/fontawesome-all.css" />
-        {/* Font-Awesome-Icons-CSS */}
-        {/* //Custom-Files */}
-        {/* Web-Fonts */}
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet" />
-        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet" />
+       
         {/* //Web-Fonts */}
         {/* header */}
-        <header>
-          {/* top-bar */}
-          <div className="top-bar py-3">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-7 top-social-agile">
-                  <div className="row">
-                    {/* social icons */}
-                    {/* //social icons */}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
         {/* //top-bar */}
         {/* header 2 */}
         <div id="home">
@@ -177,10 +154,7 @@ function Appointment()
                   <div className="nav-w3-l">
                     <ul className="list-unstyled">
                       <li>
-                        <a href="index.html">Home</a>
-                      </li>
-                      <li className="mt-2">
-                        <a href="appointment.html">Appointment</a>
+                        <div div className="Click" onClick={handleClick}>Home</div>
                       </li>
                       <li className="mt-2">
                         <a href="contact.html">Contact Us</a>
@@ -194,4 +168,4 @@ function Appointment()
       
     )}
 
-    export default Appointment;
+    export default withRouter (Appointment);
