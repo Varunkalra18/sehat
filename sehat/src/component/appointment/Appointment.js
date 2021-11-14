@@ -1,10 +1,8 @@
 import react from 'react'
 import axios from 'axios'
-import '../css/bootstrap.css'
-import '../css/fontawesome-all.css'
-import '../css/style.css'
+
 import { useHistory, withRouter } from 'react-router';
-import '../css/All.css'
+
 
 let Appointment=()=>
 {
@@ -25,7 +23,7 @@ let Appointment=()=>
           {/* navigation */}
           <div className="main-top py-1">
             <nav className="navbar navbar-expand-lg navbar-light fixed-navi">
-              <div className="container">
+             
                 {/* logo */}
                 <h1>
                   <a className="navbar-brand font-weight-bold font-italic" href="index.html">
@@ -37,7 +35,7 @@ let Appointment=()=>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span className="navbar-toggler-icon" />
                 </button>
-              </div>
+              
             </nav>
           </div>
           {/* //navigation */}
@@ -51,8 +49,7 @@ let Appointment=()=>
         {/* //header 2 */}
         {/* banner 2 */}
         <div className="inner-banner-w3ls">
-          <div className="container">
-          </div>
+         
           {/* //banner 2 */}
         </div>
         {/* page details */}
@@ -147,7 +144,7 @@ let Appointment=()=>
         {/* footer */}
         <footer>
           <div className="w3ls-footer-grids pt-sm-4 pt-3">
-            <div className="container py-xl-5 py-lg-3">
+           
               <div className="row">
                 <div className="col-md-4 w3l-footer">
                   <h3 className="mb-sm-3 mb-2 text-white">Quick Links</h3>
@@ -156,14 +153,11 @@ let Appointment=()=>
                       <li>
                         <div div className="Click" onClick={handleClick}>Home</div>
                       </li>
-                      <li className="mt-2">
-                        <a href="contact.html">Contact Us</a>
-                      </li>
                     </ul>
                   </div>
                 </div>
               </div>
-            </div></div></footer>
+            \</div></footer>
       </div>
       
     )}

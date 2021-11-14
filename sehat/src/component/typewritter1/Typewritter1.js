@@ -1,7 +1,8 @@
 import React from "react";
-
+ 
 import Typewriter from "typewriter-effect";
 
+import '../css/style.css'
 function Typewriter1()
 {
     
@@ -11,7 +12,7 @@ function Typewriter1()
           <ul className="rslides callbacks callbacks1" id="slider4">
               <div className="banner-top3">
                 <div className="banner-info_agile_w3ls">
-                  <div className="container">
+                 
                   <div className="typwriter">
          
          <Typewriter
@@ -29,7 +30,7 @@ function Typewriter1()
           }}
           />
        </div>
-                 </div>
+                 
                 </div>
               </div>
           </ul>

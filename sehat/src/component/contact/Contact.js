@@ -1,46 +1,29 @@
 import React from "react";
+import Homepage from "../homepage/Homepage";
+import Appointment from "../appointment/Appointment";
+import { useHistory } from "react-router"; 
 
 function Contact()
 {
+let history=useHistory()
+function handleClick1()
+{
+  history.push('/')
+}
+let history2=useHistory()
+  function handleClick2()
+  {
+    history2.push('/appointment')
+  }
+
     return(
 <div>
         <title>Sehat-contact</title>
-        {/* Meta tag Keywords */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta charSet="UTF-8" />
-        <meta name="keywords" content="Sehat" />
-        {/*// Meta tag Keywords */}
-        {/* Custom-Files */}
-        <link rel="stylesheet" href="css/bootstrap.css" />
-        {/* Bootstrap-Core-CSS */}
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
-        {/* Style-CSS */}
-        <link rel="stylesheet" href="css/fontawesome-all.css" />
-        {/* Font-Awesome-Icons-CSS */}
-        {/* //Custom-Files */}
-        {/* Web-Fonts */}
-        <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet" />
-        <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i&subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet" />
-        {/* //Web-Fonts */}
-        {/* header */}
-        <header>
-          {/* top-bar */}
-          <div className="top-bar py-3">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-5 top-social-agile text-lg-right text-center">
-                </div>
-              </div>
-            </div>
-          </div>
-        </header>
-        {/* //top-bar */}
-        {/* header 2 */}
-        <div id="home">
+       
           {/* navigation */}
           <div className="main-top py-1">
             <nav className="navbar navbar-expand-lg navbar-light fixed-navi">
-              <div className="container">
+             
                 {/* logo */}
                 <h1>
                   <a className="navbar-brand font-weight-bold font-italic" href="index.html">
@@ -49,32 +32,15 @@ function Contact()
                   </a>
                 </h1>
                 {/* //logo */}
-              </div>
-            </nav>
-          </div></div>
-        {/* //navigation */}
-        {/* modal */}
-        {/* login */}
-        <div className="modal fade" id="exampleModalCenter1" tabIndex={-1} role="dialog" aria-hidden="true">
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-header text-center">
-                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">×</span>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span className="navbar-toggler-icon" />
                 </button>
-              </div>
-            </div>
+              
+            </nav>
           </div>
-        </div>
-        {/* //login */}
-        {/* register */}
-        {/* //register */}
-        {/* //modal */}
-        {/* //header 2 */}
-        {/* banner 2 */}
+
         <div className="inner-banner-w3ls">
-          <div className="container">
-          </div>
+         
           {/* //banner 2 */}
         </div>
         {/* page details */}
@@ -136,26 +102,23 @@ function Contact()
         {/* footer */}
         <footer>
           <div className="w3ls-footer-grids pt-sm-4 pt-3">
-            <div className="container py-xl-5 py-lg-3">
+            
               <div className="row">
                 <div className="col-md-4 w3l-footer">
                   <h3 className="mb-sm-3 mb-2 text-white">Quick Links</h3>
                   <div className="nav-w3-l">
                     <ul className="list-unstyled">
                       <li>
-                        <a href="index.html">Home</a>
+                        <div className="Click" onClick={handleClick1}> Home</div>
                       </li>
                       <li className="mt-2">
-                        <a href="appointment.html">Appointment</a>
-                      </li>
-                      <li className="mt-2">
-                        <a href="contact.html">Contact Us</a>
+                        <div className="Click" onClick={handleClick2}>Appointment</div>
                       </li>
                     </ul>
                   </div>
                 </div>
               </div>
-            </div>
+            
           </div>
         </footer>
        

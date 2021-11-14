@@ -1,8 +1,12 @@
 import React from 'react'
 import {useHistory} from 'react-router-dom'
-import '../css/All.css'
+import '../css/bootstrap.css'
+import '../css/chocolat.css'
+import '../css/fontawesome-all.css'
+import  '../css/style.css'
 import './Navbar.css'
 import Contact from '../contact/Contact'
+import Admin_login from '../admin_login/Admin_login'
 
 function Navbar()
 {
@@ -11,16 +15,22 @@ let history=useHistory()
     history.push("/appointment");
    }
    let history2=useHistory()
-   function handleClick()
+   function handleClick2()
    {
      history2.push('/contact')
    }
+   let history3=useHistory()
+   function handleClick3()
+   {
+     history3.push('/admin_login')
+   }
 return (
     <div>
+      <body>
     <header>
     {/* top-bar */}
     <div className="top-bar py-3">
-      <div className="container">
+      
         <div className="row">
           <div className="col-lg-7 top-social-agile">
             <div className="row">
@@ -51,7 +61,7 @@ return (
             </div>
           </div>
         </div>
-      </div>
+      
     </div>
   </header>
   {/* //top-bar */}
@@ -60,7 +70,7 @@ return (
     {/* navigation */}
     <div className="main-top py-1">
       <nav className="navbar navbar-expand-lg navbar-light fixed-navi">
-        <div className="container">
+       
           {/* logo */}
           <h1>
             <a className="navbar-brand font-weight-bold font-italic" href="index.html">
@@ -73,9 +83,15 @@ return (
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-lg-auto">
+          <ul className="navbar-brand ml-lg-auto">
+            <li className="nav-item active mt-lg-0 mt-3 text-dark mr-5 ">
+                <div className="Click" onClick={handleClick3}>
+                  Admin
+                </div>
+              </li></ul>
+              <ul className="navbar-nav ml-lg-auto">
               <li className="nav-item active mt-lg-0 mt-3">
-                <a className="nav-link" href="index.html">Home
+                <a className="navbar-link" href="index.html">Home
                   <span className="sr-only">(current)</span>
                 </a>
               </li>
@@ -93,7 +109,7 @@ return (
                </div>
               </li>
               <li className="nav-item">
-                <div className="nav-link Click" onClick={handleClick}>Contact Us</div>
+                <div className="nav-link Click" onClick={handleClick2}>Contact Us</div>
               </li>
             </ul>
             {/* login */}
@@ -101,7 +117,7 @@ return (
               <i className="fas fa-sign-in-alt mr-2" />Login</a>
             {/* //login */}
           </div>
-        </div>
+        
       </nav>
     </div>
     {/* //navigation */}
@@ -183,7 +199,7 @@ return (
     </div>
     {/* //register */}
     {/* //modal */}
-  </div></div>
+  </div></body></div>
 )
 }
 

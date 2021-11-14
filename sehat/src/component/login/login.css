@@ -1,18 +1,15 @@
-.onlypadding{
-    padding-top: 1000px;
-    
+.top{
+    padding-top: 40px;
 }
-.all{
-    padding-top: 80px;
+.padding1{
+    padding-left: 30px;
+    padding-top: 45px;
 }
-.images{
-    padding-right: 1000px;
-    padding-top:1000px;
-    text-align: left;
-    height: 0px;
-    max-width:0px;
-    }
 
+.images{
+   padding-left: 500px;
+  position: fixed;
+}
 .Login{
     width:400px;
     background:silver;

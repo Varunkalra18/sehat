@@ -2,11 +2,11 @@ import React from 'react'
 import './homepage.css'
 
 import b5 from '../images/b5.png'
-
 import '../css/bootstrap.css'
 import '../css/chocolat.css'
 import '../css/fontawesome-all.css'
 import  '../css/style.css'
+
 import Navbar from '../navbar/Navbar'
 import Typewriter from '../typewritter1/Typewritter1'
 import Donation from '../donation/Donation'
@@ -50,7 +50,7 @@ function Homepage() {
                   </div>
                   <div className="col-9 screen-agile-2">
                     <h5 className="mb-3">Heart rate</h5>
-                    <p>Incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut</p>
+                    <p>You can predict the heart rate just by enetring basic details like heat rate using heart rate monitoring</p>
                   </div>
                 </div>
                 <div className="row icons-screen mt-5">
@@ -59,27 +59,21 @@ function Homepage() {
                   </div>
                   <div className="col-9 screen-agile-2">
                     <h5 className="mb-3">Diabites</h5>
-                    <p>Incididunt ut labore et dolore magna aliqua, sed do eiusmod tempor incididunt ut</p>
+                    <p>Enter the blood glucose level in the body and the model will do prediction for Diabites</p>
+                  </div>
+                  <div className="col-3 screen-agile text-right">
+                    <i className="fab fa-medrt" />
+                  </div>
+                  <div className="col-9 screen-agile-2">
+                    <h5 className="mb-3">Corona</h5>
+                    <p>Ente the basic details like oxygen level</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        {/* //treatments */}
-        {/* Js files */}
-        {/* JavaScript */}
-        {/* Default-JavaScript-File */}
-        {/* banner slider */}
-        {/* //banner slider */}
-        {/* fixed navigation */}
-        {/* //fixed navigation */}
-        {/* smooth scrolling */}
-        {/* move-top */}
-        {/* easing */}
-        {/*  necessary snippets for few javascript files */}
-        {/* Necessary-JavaScript-File-For-Bootstrap */}
-        {/* //Js files */}
+       
       </div>
     );
   }

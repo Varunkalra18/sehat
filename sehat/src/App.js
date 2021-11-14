@@ -9,11 +9,14 @@ import Disease from './component/disease/Disease'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
-
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import Donationform from './component/donationform/Donationform'
 import Services from './component/services/Services'
 import Contact from './component/contact/Contact'
+import Admin_shedule from './component/admin_shedule/Admin_shedule'
+import Admin_search from './component/admin_search/Admin_search'
+import Admin_home from './component/admin_home/Admin_home'
+import Admin_login from './component/admin_login/Admin_login'
 
 function App() {
   return (
@@ -29,6 +32,10 @@ function App() {
           <Route path="/Services"><Services></Services></Route>
           <Route path="/Disease"><Disease></Disease></Route>
           <Route path="/Contact"><Contact></Contact></Route>
+          <Route path="/admin_shedule"><Admin_shedule></Admin_shedule></Route>
+          <Route path="/admin_search"><Admin_search></Admin_search></Route>
+          <Route path="/admin_home"><Admin_home></Admin_home></Route>
+          <Route path="/admin_login"><Admin_login></Admin_login></Route>
           <Redirect to="/"/>
         </Switch>
       </Router> }

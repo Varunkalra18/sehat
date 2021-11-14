@@ -1,7 +1,4 @@
-.Click{
-    cursor: pointer;   
-}
-.Click:hover{
-    background-color:grey;
-    font-size: 120%;
+.space
+{
+    padding-right: 200px;
 }
