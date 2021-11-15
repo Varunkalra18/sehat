@@ -31,12 +31,12 @@ import userlogin from '../images/userlogin.svg'
         }
     }
     return (
-      <div className="top">
-           
-            <div className="images">
+    <div className="padding1">
+     
+  
                 <img src={userlogin} alt='login'/>
-                </div>
-   <div className="padding1">
+               
+              
         <div className="Login">
         
             <h1>Login</h1>
@@ -47,9 +47,11 @@ import userlogin from '../images/userlogin.svg'
             <div className="Button" onClick={login}>Login</div>
             <h6>Or</h6>
             <div className="Button" onClick={() => history.push("/register")}>Register</div>
-           </div>
-        </div>
-        </div>
+           </div></div>
+          
+                
+   
+        
     )
 }
 

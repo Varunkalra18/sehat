@@ -30,7 +30,7 @@ return (
     <header>
     {/* top-bar */}
     <div className="top-bar py-3">
-      
+     <div className="nav-position">
         <div className="row">
           <div className="col-lg-7 top-social-agile">
             <div className="row">
@@ -61,15 +61,17 @@ return (
             </div>
           </div>
         </div>
-      
+     </div>
     </div>
   </header>
   {/* //top-bar */}
   {/* header 2 */}
   <div id="home">
     {/* navigation */}
-    <div className="main-top py-1">
-      <nav className="navbar navbar-expand-lg navbar-light fixed-navi">
+  
+    <div className="main-top h">
+    <div className="nav-position">
+      <nav className="navbar navbar-expand-md navbar-light fixed-navi">
        
           {/* logo */}
           <h1>
@@ -84,32 +86,32 @@ return (
           </button>
           <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
           <ul className="navbar-brand ml-lg-auto">
-            <li className="nav-item active mt-lg-0 mt-3 text-dark mr-5 ">
+            <li className="nav-item active mt-lg-0 mt-3 text-white mr-5 ">
                 <div className="Click" onClick={handleClick3}>
                   Admin
                 </div>
               </li></ul>
               <ul className="navbar-nav ml-lg-auto">
               <li className="nav-item active mt-lg-0 mt-3">
-                <a className="navbar-link" href="index.html">Home
+                <a className="navbar-link text-white" href="index.html">Home
                   <span className="sr-only">(current)</span>
                 </a>
               </li>
-              <li className="nav-item mx-lg-4 my-lg-0 my-3">
-                <a className="nav-link" href="#donation">Donation</a>
+              <li className="nav-item mx-lg-4 my-lg-0 my-3 ">
+                <a className="nav-link text-white" href="#donation">Donation</a>
               </li>
               <li className="nav-item ">
-                <a className="nav-link" href="#services" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a className="nav-link text-white" href="#services" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Services
                 </a>
               </li>
               
               <li className="nav-item mx-lg-4 my-lg-0 my-3">
-               <div className="Click" onClick={handleClick} >Appointment
+               <div className="Click text-white" onClick={handleClick} >Appointment
                </div>
               </li>
               <li className="nav-item">
-                <div className="nav-link Click" onClick={handleClick2}>Contact Us</div>
+                <div className="nav-link Click text-white" onClick={handleClick2}>Contact Us</div>
               </li>
             </ul>
             {/* login */}
@@ -117,8 +119,8 @@ return (
               <i className="fas fa-sign-in-alt mr-2" />Login</a>
             {/* //login */}
           </div>
-        
       </nav>
+      </div>
     </div>
     {/* //navigation */}
     {/* modal */}
