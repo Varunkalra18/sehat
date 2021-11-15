@@ -2,7 +2,8 @@ import express from 'express'
 import cors from "cors"
 import mongoose from "mongoose"
 import jwt from 'jsonwebtoken'
-//import { getName} from './middleware'
+import  auth from './middleware.js'
+
 const app = express()
 app.use(express.json())
 app.use(express.urlencoded())
@@ -18,7 +19,8 @@ mongoose.connect('mongodb://localhost:27017/sehatdb',{
 const userSchema = new mongoose.Schema({
     name:String,
     email:String,
-    password:String
+    password:String,
+    type:String
 })
 //Creating User Model
 const User = new mongoose.model("User", userSchema)
@@ -105,7 +107,10 @@ app.post("/register", (req,res)=>{
     })
     
 })
+//appointment
+app.post("/appointment", auth, (req,res) => {
 
+})
 app.listen(9002, ()=>{
     console.log("Backend Working at 4000")
 })

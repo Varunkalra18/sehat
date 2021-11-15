@@ -12,12 +12,13 @@ import Typewriter from '../typewritter1/Typewritter1'
 import Donation from '../donation/Donation'
 import Services from '../services/Services'
 function Homepage() {
-  
+  const tokens = localStorage.getItem("user")
+
   return (
         <div>
         <title>SEHAT home</title>
         {/* Nabar is in navbar folder*/}
-    <Navbar></Navbar>
+        <Navbar token = {tokens}></Navbar>
         
         {/* Typwriter is in typwriter folder */}
        <Typewriter></Typewriter>

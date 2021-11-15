@@ -1,6 +1,6 @@
 import react from 'react'
 import axios from 'axios'
-
+import { useState } from 'react'
 import '../css/bootstrap.css'
 import '../css/fontawesome-all.css'
 import '../css/style.css'
@@ -11,9 +11,45 @@ import { useHistory, withRouter } from 'react-router';
 let Appointment=()=>
 {
   let history=useHistory()
+  const home = ()=> {
+    history.push("/")
+  }
   function handleClick(){
     history.push("/")
   }
+  const [appoint, setUser] = useState({
+    name:"",
+    email:"",
+    doctor:"",
+    date:"",
+    time:"",
+
+})
+console.log(appoint)
+const handleChange = (e) => {
+  //console.log(e.target)
+  const {name,value} = e.target ;
+  // console.log(name,value)
+  setUser({
+      ...appoint,
+      [name]: value
+  })
+  
+}
+const submit = () =>{
+  console.log(appoint)
+  const {name,email,doctor,date,time} = appoint
+  if(name && email && doctor && date && time)
+  {
+      axios.post("http://localhost:9002/appointment", appoint) 
+      .then(res => history.push("/appointment"))
+      // alert("posted successfully")
+  }
+  else{
+      alert("Invalid input")
+  }
+  
+}
     return(
      <div>
         <title>Sehat-appointment</title>
@@ -61,7 +97,7 @@ let Appointment=()=>
           <div aria-label="breadcrumb">
             <ol className="breadcrumb">
               <li className="breadcrumb-item">
-                <a href="index.html">Home</a>
+                  <p onClick={home}>Home</p>
               </li>
               <li className="breadcrumb-item active" aria-current="page">Appointment</li>
             </ol>
@@ -86,15 +122,15 @@ let Appointment=()=>
                 <form action="#" method="post">
                   <div className="form-group">
                     <label htmlFor="recipient-name" className="col-form-label">Your Name</label>
-                    <input type="text" className="form-control" placeholder="Your Name " name="Name" id="recipient-name" required />
+                    <input type="text" className="form-control" placeholder="Your Name " name="name" value={appoint.name} onChange={handleChange} id="recipient-name" required />
                   </div>
                   <div className="form-group">
                     <label htmlFor="recipient-phone" className="col-form-label">Your Email</label>
-                    <input type="email" className="form-control" placeholder="Your Email" name="email" id="recipient-phone" required />
+                    <input type="email" className="form-control" placeholder="Your Email" name="email" value={appoint.email} onChange={handleChange} id="recipient-phone" required />
                   </div>
                   <div className="form-group">
                     <label htmlFor="datepicker" className="col-form-label">Select your doctor</label>
-                    <select required className="form-control">
+                    <select required className="form-control" name="doctor" value={appoint.doctor} onChange={handleChange}>
                       <option value>Select your doctor</option>
                       <option value={1}>Anne Dan</option>
                       <option value={2}>Carol Una</option>
@@ -105,11 +141,11 @@ let Appointment=()=>
                   </div>
                   <div className="form-group">
                     <label htmlFor="datepicker" className="col-form-label">Select appointment date</label>
-                    <input placeholder="Date" className="date form-control" id="datepicker" type="text" defaultValue onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}" required />
+                    <input placeholder="Date" className="date form-control" id="datepicker" type="text" name="date" value={appoint.date} onChange={handleChange} required />
                   </div>
                   <div className="form-group">
                     <label htmlFor="datepicker" className="col-form-label">Select appointment time</label>
-                    <select required className="form-control">
+                    <select required className="form-control" name="time" value={appoint.time} onChange={handleChange}>
                       <option value>Select Time</option>
                       <option value={1}>08:00-8:30</option>
                       <option value={2}>08:30-9:00</option>
@@ -117,26 +153,7 @@ let Appointment=()=>
                       <option value={4}>09:30-10:00</option>
                     </select>
                   </div>
-                  <div className="form-group">
-                    <label htmlFor="datepicker" className="col-form-label">Select City</label>
-                    <select required className="form-control">
-                      <option value>Select City</option>
-                      <option value={1}>city1</option>
-                      <option value={2}>city2</option>
-                      <option value={3}> city3</option>
-                      <option value={4}>city4</option>
-                    </select>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="datepicker" className="col-form-label">Select Speciality</label>
-                    <select required className="form-control">
-                      <option value>Select Speciality</option>
-                      <option value={1}>Dermatology</option>
-                      <option value={2}>ENT</option>
-                      <option value={3}> Genaral Medicine</option>
-                      <option value={4}>Nutritionist</option>
-                    </select>
-                  </div>
+                  
                   <input type="submit" defaultValue="Book Appointment" className="btn_apt" />
                 </form>
               </div>

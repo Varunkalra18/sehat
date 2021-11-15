@@ -1,7 +1,5 @@
 import jwt from 'jsonwebtoken'
-
-
-export const auth = (req,res,next) => {
+const auth = (req,res,next) => {
     console.log("I am varun from middleware");
     const token = req.headers.authorization.split(" ")[1] ;
     const user = jwt.verify(token,"secret199913")
@@ -16,3 +14,4 @@ export const auth = (req,res,next) => {
     }
 
 }
+export default auth
