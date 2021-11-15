@@ -561,7 +561,7 @@ a.w3ls-button-agile:hover {
 }
 
 .rslides li {
-    -webkit-backface-visibility: hidden;
+   
     position: absolute;
     display: none;
     width: 100%;
