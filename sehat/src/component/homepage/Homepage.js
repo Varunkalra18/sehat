@@ -1,4 +1,5 @@
 import React from 'react'
+import Login from '../login/Login'
 import './homepage.css'
 import b2 from '../images/b2.png'
 import b3 from '../images/b3.png'
@@ -22,8 +23,9 @@ import '../css/chocolat.css'
 import '../css/fontawesome-all.css'
 import  '../css/style.css'
 import Typewriter from "typewriter-effect";
-
+import {useHistory} from 'react-router-dom'
 function Homepage() {
+  const history = useHistory();
     return (
         <div>
         <title>SEHAT home</title>
@@ -116,6 +118,7 @@ function Homepage() {
                       </a>
                     </li>
                     <li className="nav-item mx-lg-4 my-lg-0 my-3">
+                      <div onClick={()=>history.push("/appointment")}></div>
                       <a className="nav-link" href="appointment.html">Appointment</a>
                     </li>
                     <li className="nav-item">
@@ -123,8 +126,9 @@ function Homepage() {
                     </li>
                   </ul>
                   {/* login */}
-                  <a href="#" className="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
-                    <i className="fas fa-sign-in-alt mr-2" />Login</a>
+                  
+                  <span className="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" onClick={()=>history.push("/login")}>
+                    <i className="fas fa-sign-in-alt mr-2" />Login</span>
                   {/* //login */}
                 </div>
               </div>
