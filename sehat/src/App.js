@@ -5,6 +5,7 @@ import Register from './component/register/Register'
 import Appointment from './component/appointment/Appointment'
 import Donation from './component/donation/Donation'
 import './App.css';
+import axios from 'axios';
 import Disease from './component/disease/Disease'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
@@ -17,6 +18,7 @@ import Admin_shedule from './component/admin_shedule/Admin_shedule'
 import Admin_search from './component/admin_search/Admin_search'
 import Admin_home from './component/admin_home/Admin_home'
 import Admin_login from './component/admin_login/Admin_login'
+
 
 function App() {
   return (

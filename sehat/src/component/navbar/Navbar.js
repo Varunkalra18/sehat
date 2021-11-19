@@ -5,8 +5,6 @@ import '../css/chocolat.css'
 import '../css/fontawesome-all.css'
 import  '../css/style.css'
 import './Navbar.css'
-import Contact from '../contact/Contact'
-import Admin_login from '../admin_login/Admin_login'
 
 function Navbar()
 {

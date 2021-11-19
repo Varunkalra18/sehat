@@ -1,6 +1,5 @@
 import React from "react";
-import Homepage from "../homepage/Homepage";
-import Appointment from "../appointment/Appointment";
+
 import { useHistory } from "react-router"; 
 
 function Contact()

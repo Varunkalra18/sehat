@@ -1,17 +1,21 @@
 import React from 'react'
 import './homepage.css'
-
 import b5 from '../images/b5.png'
 import '../css/bootstrap.css'
 import '../css/chocolat.css'
 import '../css/fontawesome-all.css'
 import  '../css/style.css'
-
+import { useHistory } from 'react-router'
 import Navbar from '../navbar/Navbar'
 import Typewriter from '../typewritter1/Typewritter1'
 import Donation from '../donation/Donation'
 import Services from '../services/Services'
 function Homepage() {
+ var history=useHistory()
+ function handleClick()
+ {
+   history.push('/disease');
+ }
   
   return (
         <div>
@@ -49,7 +53,7 @@ function Homepage() {
                     <i className="fas fa-syringe" />
                   </div>
                   <div className="col-9 screen-agile-2">
-                    <h5 className="mb-3">Heart rate</h5>
+                    <h5 className="mb-3"><div onClick={handleClick} className="Click">Heart rate</div></h5>
                     <p>You can predict the heart rate just by enetring basic details like heat rate using heart rate monitoring</p>
                   </div>
                 </div>

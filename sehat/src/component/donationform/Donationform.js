@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router";
+
 import './Donationform.css'
 
 function Donationform()
@@ -15,7 +15,7 @@ function Donationform()
             <div className="col-25">
               <label htmlFor="fname">Full Name</label>
             </div>
-            <div className="col-25">
+            <div className="col-75">
               <input type="text" id="fname" name="firstname" placeholder="Your name.." />
             </div>
           </div>

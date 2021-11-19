@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
 
-mongoose.connect('mongodb://localhost:27017/sehatdb',{
+mongoose.connect('mongodb+srv://Tejaspandit:Tejaspandit123@cluster.bilac.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{
     useNewUrlParser:true,
     useUnifiedTopology:true
 },()=>{
