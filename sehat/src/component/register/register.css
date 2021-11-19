@@ -1,15 +1,8 @@
-.images{
-padding-top:30px;
-text-align: left;
-padding-right: 800px;
-max-width: 10px;
-
+.padding2{
+    display: flex;
+justify-content: space-evenly;
+padding-top: 40px;
 }
-.onlypadding{
-    padding-top: 1rem;
-    padding-right: 600px;
-}
-
 .register{
     width:400px;
     background:silver;

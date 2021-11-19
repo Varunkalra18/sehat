@@ -28,7 +28,7 @@ function App() {
            <Route path="/donationform"><Donationform></Donationform></Route>
           <Route path="/login"><Login></Login></Route>
           <Route path="/register"><Register></Register></Route>
-          <Route path="/donation"><Donation></Donation></Route>
+          <Route path="/donate"><Donation></Donation></Route>
           <Route path="/Services"><Services></Services></Route>
           <Route path="/Disease"><Disease></Disease></Route>
           <Route path="/Contact"><Contact></Contact></Route>

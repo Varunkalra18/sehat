@@ -32,7 +32,8 @@ app.post("/login", (req,res)=>{
         name: "Varunn",
         email: "kalravarun1999@gmail.com",
         password : "var",
-        type: "client"
+        type: "client",
+        isFirst:"yes"
     },
     {
         name: "Kalra",
@@ -51,7 +52,7 @@ app.post("/login", (req,res)=>{
     console.log(users)
     if(password == users[0].password)
     {
-        const token = jwt.sign(users[0].email,"secret1999g13");
+        const token = jwt.sign(users[0],"secret1999g13");
         console.log(token) ;
         users = {...users,token} ;
         console.log(users) ;
@@ -104,11 +105,15 @@ app.post("/register", (req,res)=>{
                 }
             })
         }
-    })
-    
+    })    
 })
 //appointment
+
+
+
 app.post("/appointment", auth, (req,res) => {
+    console.log("req.body", req.body)
+    res.send({message: "Your Appointment has been scheduled"})
 
 })
 app.listen(9002, ()=>{

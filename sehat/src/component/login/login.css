@@ -1,15 +1,12 @@
-.top{
-    padding-top: 40px;
-}
-.padding1{
-    padding-left: 30px;
-    padding-top: 45px;
+.padding1
+{
+display: flex;
+justify-content: space-evenly;
+padding-top: 80px;
+
+    
 }
 
-.images{
-   padding-left: 500px;
-  position: fixed;
-}
 .Login{
     width:400px;
     background:silver;

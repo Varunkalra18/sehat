@@ -46,11 +46,9 @@ function Register() {
         
     }
     return (
-        <center>
-            <div className="images">
+      <div className="padding2">
+           
                 <img src={doctor} alt='d' />
-            </div>
-            <div className="onlypadding">
         <div className="register">
            
            <h1>Register</h1>
@@ -76,7 +74,7 @@ function Register() {
             <div className="Button" onClick={register}>Register</div>
             <div>or</div>
             <div className="Button" onClick={()=> history.push("/login")}>Login</div>
-        </div></div></center>
+        </div></div>
     )
 }
 

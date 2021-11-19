@@ -41,9 +41,28 @@ const submit = () =>{
   const {name,email,doctor,date,time} = appoint
   if(name && email && doctor && date && time)
   {
-      axios.post("http://localhost:9002/appointment", appoint) 
-      .then(res => history.push("/appointment"))
-      // alert("posted successfully")
+      const userStr  = localStorage.getItem("user")
+      if (!userStr){
+        alert("Please Login first")
+      }
+      else{
+        const user = JSON.parse(userStr) ;
+        console.log(user)
+        let tokens = user.token ;
+        let toc = `Bearer ${tokens}`
+        console.log(toc)
+        axios.post("http://localhost:9002/appointment", {appoint},{
+          
+          headers : {"Authorization" :`Bearer ${tokens}`},
+          
+        }) 
+        .then(res => {
+          console.log(res)
+          history.push("/appointment")
+        })
+
+      }
+            // alert("posted successfully")
   }
   else{
       alert("Invalid input")
@@ -119,7 +138,7 @@ const submit = () =>{
               </div>
               <div className="contact-right-w3l appoint-form">
                 <h5 className="title-w3 text-center mb-5">Fill your appointment form</h5>
-                <form action="#" method="post">
+                
                   <div className="form-group">
                     <label htmlFor="recipient-name" className="col-form-label">Your Name</label>
                     <input type="text" className="form-control" placeholder="Your Name " name="name" value={appoint.name} onChange={handleChange} id="recipient-name" required />
@@ -154,8 +173,8 @@ const submit = () =>{
                     </select>
                   </div>
                   
-                  <input type="submit" defaultValue="Book Appointment" className="btn_apt" />
-                </form>
+                  <button className ="btn btn-primary" type="submit"  onClick= {submit} clacdssName="btn_apt" >Submit</button>
+                
               </div>
               <div className="clerafix" />
             </div>
@@ -183,4 +202,4 @@ const submit = () =>{
       
     )}
 
-    export default withRouter (Appointment);
+    export default Appointment ;

@@ -29,6 +29,7 @@
                 .then((res) => {
                     if(res.data.code === 404)
                     {
+
                         alert("Invalid Password") ;
                     }
                     else if(res.data.code === 500)
@@ -37,7 +38,12 @@
                     }
                     else{
                         localStorage.setItem("user", JSON.stringify(res.data))
-                        console.log(res.data)
+                        const vas = JSON.stringify(res.data)
+                        if(res.data.isFirst === "yes")
+                        {
+                            history.push("/donate")
+                        }
+                        console.log(vas.email)
                         history.push("/")
                     }
                 })
