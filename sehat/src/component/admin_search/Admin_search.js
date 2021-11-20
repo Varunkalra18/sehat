@@ -12,7 +12,7 @@ return(
       setSearchTerm(event.target.value);
       }} />
             {Demo.filter((val)=>{
-              if(searchTerm=="")
+              if(searchTerm==" ")
               {
                 return val;
               }

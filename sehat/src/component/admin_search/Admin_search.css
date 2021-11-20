@@ -29,9 +29,16 @@ padding-top: 100px;
   #customers th {
     padding-top: 12px;
     padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
+    text-align: center;
+   
+    
   }
-
+  .tr {
+  background-color: #04AA6D;
+  text-align: center;
+}
+.flex1{
+display: flex;
+justify-content: center;
+}
   

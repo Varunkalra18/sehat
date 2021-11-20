@@ -18,7 +18,10 @@ import Admin_shedule from './component/admin_shedule/Admin_shedule'
 import Admin_search from './component/admin_search/Admin_search'
 import Admin_home from './component/admin_home/Admin_home'
 import Admin_login from './component/admin_login/Admin_login'
-
+import View_appointment from './component/view_appointment/View_appointment'
+import Symptoms from './component/symptoms/Symtoms'
+import Diabites from './component/diabites/Diabities'
+import Corona from './corona/Corona'
 
 function App() {
   return (
@@ -30,7 +33,7 @@ function App() {
            <Route path="/donationform"><Donationform></Donationform></Route>
           <Route path="/login"><Login></Login></Route>
           <Route path="/register"><Register></Register></Route>
-          <Route path="/donation"><Donation></Donation></Route>
+          <Route path="/donate"><Donation></Donation></Route>
           <Route path="/Services"><Services></Services></Route>
           <Route path="/Disease"><Disease></Disease></Route>
           <Route path="/Contact"><Contact></Contact></Route>
@@ -38,6 +41,10 @@ function App() {
           <Route path="/admin_search"><Admin_search></Admin_search></Route>
           <Route path="/admin_home"><Admin_home></Admin_home></Route>
           <Route path="/admin_login"><Admin_login></Admin_login></Route>
+          <Route path="/view_appointment"><View_appointment></View_appointment></Route>
+          <Route path="/symptoms"><Symptoms></Symptoms></Route>
+           <Route path="/diabities"><Diabites></Diabites></Route>
+           <Route path="/corona"><Corona></Corona></Route>
           <Redirect to="/"/>
         </Switch>
       </Router> }

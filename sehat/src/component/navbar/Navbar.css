@@ -2,9 +2,15 @@
 {
     padding-right: 200px;
 }
+.login-button{
+    color:white;
+}
 .nav-position
 {
     height: 5px;
+}
+nav{
+    height:70px;
 }
 .h{
     height: 0%;

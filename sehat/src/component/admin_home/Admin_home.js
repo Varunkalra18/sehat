@@ -70,7 +70,7 @@ function Admin_home()
                   </div>
                   <div className="col-9 agile-why-text-2">
                     <h4 className="text-dark font-weight-bold mb-3"><div className="Click" onClick={handleClick}>
-                        Shedule Doctor</div></h4>
+                        Check Appointments</div></h4>
                     <p>Take appointment from the doctor</p>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ function Admin_home()
                   </div>
                   <div className="col-9 agile-why-text-2">
                     <h4 className="text-dark font-weight-bold mb-3">
-                    <div className="Click" onClick={handleClick2} > Blood requirements</div></h4>
+                    <div className="Click" onClick={handleClick2} > Blood Announcement</div></h4>
                     <p>Check for blood requirements</p>
                   </div>
                 </div>

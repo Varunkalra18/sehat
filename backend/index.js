@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from "cors"
 import mongoose from "mongoose"
+import jwt from 'jsonwebtoken'
+import  auth from './middleware.js'
 
 const app = express()
 app.use(express.json())
@@ -17,7 +19,10 @@ mongoose.connect('mongodb+srv://Tejaspandit:Tejaspandit123@cluster.bilac.mongodb
 const userSchema = new mongoose.Schema({
     name:String,
     email:String,
-    password:String
+    conatact:String,
+    gender:String,
+    password:String,
+    type:String
 })
 //Creating User Model
 const User = new mongoose.model("User", userSchema)
@@ -25,22 +30,61 @@ const User = new mongoose.model("User", userSchema)
 
 //Routes
 app.post("/login", (req,res)=>{
+    const users_data = [{
+        name: "Varunn",
+        email: "kalravarun1999@gmail.com",
+        password : "var",
+        type: "client",
+        isFirst:"yes"
+    },
+    {
+        name: "Kalra",
+        email: "kalra@gmail.com",
+        password : "var",
+        type: "Admin"
+    }
+]
     const {email, password} = req.body
-    User.findOne({email:email}, (err,user)=>{
-        if(user)
+    var users = users_data.filter((user) => {
+        if(user.email === email)
         {
-            if(password === user.password)
-            {
-                res.send({message:"Login Successfull", user:user} )
-            }
-            else{
-                res.send({message:"Password didn't match"})
-            }
-        }
-        else{
-            res.send({message:"user doesnot exist"})
+            return user ;
         }
     })
+    console.log(users)
+    if(password == users[0].password)
+    {
+        const token = jwt.sign(users[0],"secret1999g13");
+        console.log(token) ;
+        users = {...users,token} ;
+        console.log(users) ;
+        res.send(users)
+    }
+    else{
+        res.send({message:"Password didn't match", code:404})
+    }
+    // User.findOne({email:email}, (err,user)=>{
+
+    //     if(!err)
+    //     {
+    //         console.log(user) ;
+    //         if(password === user.password)
+    //         {
+    //             const token = jwt.sign(user.email,"secret1999g13");
+    //             console.log(token) ;
+    //             user = {...user,token} ;
+    //             console.log(user) ;
+    //             res.send(user)
+    //         }
+    //         else{
+    //             res.send({message:"Password didn't match", code:404})
+    //         }
+    //     }
+    //     else{
+    //         console.log(err)
+    //         res.send({message:"user doesnot exist", code:500})
+    //     }
+    // })
 })
 app.post("/register", (req,res)=>{
     const {name, email, password} = req.body
@@ -63,10 +107,17 @@ app.post("/register", (req,res)=>{
                 }
             })
         }
-    })
-    
+    })    
 })
+//appointment
 
+
+
+app.post("/appointment", auth, (req,res) => {
+    console.log("req.body", req.body)
+    res.send({message: "Your Appointment has been scheduled"})
+
+})
 app.listen(9002, ()=>{
     console.log("Backend Working at 4000")
 })
