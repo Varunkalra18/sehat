@@ -5,6 +5,8 @@ import {useHistory} from 'react-router-dom'
 import admin from '../images/admin.svg'
 import { useState } from "react";
 import './Admin_login.css'
+
+
  function Admin_login() {
     const history = useHistory()
     const [user, setUser] = useState({
@@ -25,8 +27,18 @@ import './Admin_login.css'
         const {email, password} = user
         if(email && password)
         {
-            axios.post("http://localhost:9002/login",user)
-            .then(res => alert(res.data.message))
+            axios.post("http://localhost:9002/adminLogin",user)
+            .then(res => {
+                if(res.data.code == 404){
+                    alert(res.data.message)
+                }
+                else{
+                    localStorage.setItem("user", JSON.stringify(res.data))
+                    const vas = JSON.stringify(res.data)
+                    history.push("/admin_home")
+                }
+                
+            })
         }
         else{
             alert("Enter Credentials Correctly")

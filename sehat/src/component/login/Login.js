@@ -39,10 +39,7 @@
                     else{
                         localStorage.setItem("user", JSON.stringify(res.data))
                         const vas = JSON.stringify(res.data)
-                        if(res.data.isFirst === "yes")
-                        {
-                            history.push("/donate")
-                        }
+                        
                         console.log(vas.email)
                         history.push("/")
                     }

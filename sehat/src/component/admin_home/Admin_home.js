@@ -43,7 +43,7 @@ function Admin_home()
           <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
             {/* login */}
             <a href="#" className="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" data-toggle="modal" data-target="#exampleModalCenter1">
-              <i className="fas fa-sign-in-alt mr-2" />Logout</a>
+              <i className="fas fa-sign-in-alt " />Logout</a>
             {/* //login */}
           </div></div>
         
