@@ -16,6 +16,7 @@ function Register() {
         password:"",
         reEnterPassword:"",
         contactNo:"",
+        utype:"client",
         gender:"",
         pincode:""
     }) 
@@ -33,7 +34,7 @@ function Register() {
     console.log(user)
     const register = () =>{
         console.log(user)
-        const {name,email,password,reEnterPassword,contactNo,gender,pincode} = user
+        const {name,email,password,reEnterPassword,contactNo,utype,gender,pincode} = user
         if(name && email && password && (password === reEnterPassword) && contactNo && gender && pincode)
         {
             axios.post("http://localhost:9002/register", user)
@@ -57,6 +58,7 @@ function Register() {
            <input type="password" name="password" value={user.password} placeholder="Enter Your Password"onChange={handleChange}></input>
            <input type="text" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re Enter your password"onChange={handleChange}></input>
            <input type="text" name="contactNo" value={user.contactNo} placeholder="Enter your contact number"onChange={handleChange}></input>
+           <input type="hidden" name="type" value={user.utype} onChange={handleChange}></input>
            <Container>
                 <Row>
                     <Col className="pt-2">

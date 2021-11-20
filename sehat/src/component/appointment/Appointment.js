@@ -56,9 +56,10 @@ const submit = () =>{
           headers : {"Authorization" :`Bearer ${tokens}`},
           
         }) 
-        .then(res => {
-          console.log(res)
-          history.push("/appointment")
+        .then((res) => {
+          console.log(res.data.message)
+          alert(res.data.message)
+          history.push("/")
         })
 
       }
