@@ -45,11 +45,8 @@ function Donationform()
               <label htmlFor="fname">Full Name</label>
             </div>
             <div className="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="Your name.." />
-            <div className="col-25">
-              <input type="text" id="fname" name="name" value={donates.name} onChange={handleChange} placeholder="Your name.." />
-            </div>
-          </div>
+            <input type="text" id="fname" name="name" value={donates.name} onChange={handleChange} placeholder="Your name.." />    
+          </div></div>
           <div className="row">
             <div className="col-25">
               <label htmlFor="Email">Email</label>
@@ -63,7 +60,7 @@ function Donationform()
               <label htmlFor="state">State</label>
             </div>
             <div className="col-75">
-              <input type="text" id="state" name="state" onChange={handleChange} value={donates.state}placeholder="Ex Bhopal.." />
+              <input type="text" id="state" name="state" onChange={handleChange} value={donates.state}placeholder="Ex Maharashtra.." />
             </div>
           </div>
           <div className="row">
@@ -102,7 +99,7 @@ function Donationform()
           </div>
           <div><br/>
           <button type="button" value="submit" class="btn btn-outline-success" onClick={submit}>Submit</button>
-          </div></div>
+          </div>
         </form>
       </div></div></center></div>
     );
