@@ -194,6 +194,19 @@ app.post("/adminLogin", (req,res) => {
         res.send({code:404, message:"Invalid Credentials"})
     }
 })
+app.get("/viewappointment", (req,res)=>{
+    console.log("here in view appointment")
+    appoint.find({}, (err,data) => {
+        console.log(err)
+        if(err){
+            res.send({code:404, message:"No Appintments"})
+        }
+        else{
+            console.log(data)
+            res.send(data)
+        }
+    })
+})
 app.listen(9002, ()=>{
-    console.log("Backend Working at 4000")
+    console.log("Backend Working at 9002")
 })
