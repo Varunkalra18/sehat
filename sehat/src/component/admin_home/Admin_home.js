@@ -1,27 +1,25 @@
-import React from 'react';
+ import React from 'react';
 import { useHistory } from 'react-router';
 import Admin_search from '../admin_search/Admin_search';
 import Admin_shedule from '../admin_shedule/Admin_shedule';
 import Disease from '../disease/Disease';
 import b3 from '../images/b3.png';
 import './Admin_home.css';
+import View from "../admin_view/View"
 function Admin_home()
 {
-    let history1=useHistory()
-    function handleClick()
-    {
-        history1.push('./admin_shedule')
-    }
-    let history2=useHistory()
+    let history=useHistory()
+  
     function handleClick2()
     {
-        history1.push('./admin_search')
+        history.push('./admin_search')
     }
-   
-    let history3=useHistory()
     function handleClick3()
     {
-        history3.push('./disease')
+        history.push('./disease')
+    }
+    const check = () => {
+      history.push("/view")
     }
     return(
 
@@ -68,8 +66,8 @@ function Admin_home()
                       <i className="fas fa-user-md" />
                     </div>
                   </div>
-                  <div className="col-9 agile-why-text-2">
-                    <h4 className="text-dark font-weight-bold mb-3"><div className="Click" onClick={handleClick}>
+                  <div className="col-9 agile-why-text-2" onClick={check}>
+                    <h4 className="text-dark font-weight-bold mb-3"><div className="Click">
                         Check Appointments</div></h4>
                     <p>Take appointment from the doctor</p>
                   </div>

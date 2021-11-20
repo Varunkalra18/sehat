@@ -11,6 +11,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
 
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
+import View from "./component/admin_view/View"
 import Donationform from './component/donationform/Donationform'
 import Services from './component/services/Services'
 import Contact from './component/contact/Contact'
@@ -22,6 +23,7 @@ import View_appointment from './component/view_appointment/View_appointment'
 import Symptoms from './component/symptoms/Symtoms'
 import Diabites from './component/diabites/Diabities'
 import Corona from './corona/Corona'
+import List from "./component/admin_view/List"
 
 function App() {
   return (
@@ -41,6 +43,8 @@ function App() {
           <Route path="/admin_search"><Admin_search></Admin_search></Route>
           <Route path="/admin_home"><Admin_home></Admin_home></Route>
           <Route path="/admin_login"><Admin_login></Admin_login></Route>
+          <Route path="/view"><View/></Route>
+          <Route path="/list"><List/></Route>
           <Route path="/view_appointment"><View_appointment></View_appointment></Route>
           <Route path="/symptoms"><Symptoms></Symptoms></Route>
            <Route path="/diabities"><Diabites></Diabites></Route>
