@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import './register.css'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom';
-import { Container, Row, Col } from 'reactstrap';
+// import { Container, Row, Col } from 'reactstrap';
 import doctor from '../images/doctor.svg';
 import '../..//../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../..//../node_modules/bootstrap/dist/js/bootstrap.min.js';
@@ -59,19 +59,19 @@ function Register() {
            <input type="text" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re Enter your password"onChange={handleChange}></input>
            <input type="text" name="contactNo" value={user.contactNo} placeholder="Enter your contact number"onChange={handleChange}></input>
            <input type="hidden" name="type" value={user.utype} onChange={handleChange}></input>
-           <Container>
-                <Row>
-                    <Col className="pt-2">
+           <div className="container">
+                <div className="row">
+                    <div className=" col-6 pt-2">
                     <select value={user.gender} onChange={handleChange} name="gender" >
                        <option value="Male" selected>Male</option>
                         <option value="Female">Female</option>
                     </select>
-                    </Col>
-                    <Col>
+                    </div>
+                    <div className="col-6">
                         <input type="text" name="pincode" value={user.pincode} placeholder="Pincode"onChange={handleChange}></input>
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </div>
           
             <div className="Button" onClick={register}>Register</div>
             <div>or</div>

@@ -47,20 +47,7 @@ const dona = new mongoose.model("dona", bloodd)
 
 //Routes
 app.post("/login", (req,res)=>{
-    const users_data = [{
-        name: "Varunn",
-        email: "kalravarun1999@gmail.com",
-        password : "var",
-        type: "client",
-        isFirst:"yes"
-    },
-    {
-        name: "Kalra",
-        email: "kalra@gmail.com",
-        password : "var",
-        type: "Admin"
-    }
-]
+   
     const {email, password} = req.body
     
     
@@ -184,6 +171,26 @@ app.post("/donation", (req,res)=>{
             res.send({message:"You are in our Database we will contact you when required"})
         }
     })
+})
+app.post("/adminLogin", (req,res) => {
+    const users_data = {
+        name: "Kalra",
+        email: "kalra@gmail.com",
+        password : "var",
+        type: "Admin"
+    }
+    const {email, password} = req.body
+    if(email === users_data.email && password === users_data.password){
+        const token = jwt.sign(users_data, "secretg13")
+        console.log(token)
+        var usered = {...users_data,token}
+        console.log(usered)
+        res.send(usered)
+    }
+    else{
+        console.log("Invalid Cred")
+        res.send({code:404, message:"Invalid Credentials"})
+    }
 })
 app.listen(9002, ()=>{
     console.log("Backend Working at 4000")
