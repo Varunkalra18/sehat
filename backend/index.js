@@ -3,6 +3,15 @@ import cors from "cors"
 import mongoose from "mongoose"
 import jwt from 'jsonwebtoken'
 import  auth from './middleware.js'
+// const nodemailer = require("nodemailer")
+import nodemailer from "nodemailer"
+var transporter = nodemailer.createTransport({
+    service:'gmail',
+    auth:{
+        user:"healthcaresehat@gmail.com",
+        pass:"Sehathealth@123"
+    }
+})
 
 const app = express()
 app.use(express.json())
@@ -206,6 +215,24 @@ app.get("/viewappointment", (req,res)=>{
             res.send(data)
         }
     })
+})
+app.get("/sendAnnouncement", (req,res) =>{
+    console.log("WE are in send Announcement")
+    var mailOption = {
+        from:"healthcaresehat@gail.com",
+        to:"kalravarun1999@gmail.com",
+        subject:"Mail for blood requirement",
+        text:"Thanks for your interest in donating blood, Your Blood can save a persons life, Thanks and regards."
+    }
+    transporter.sendMail(mailOption,(err,info)=>{
+        if(err){
+            console.log(err)
+        }
+        else{
+            console.log("Email sent"+ info.response)
+        }
+    })
+    res.send({message:"successfull"})
 })
 app.listen(9002, ()=>{
     console.log("Backend Working at 9002")
