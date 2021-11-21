@@ -3,65 +3,47 @@ import './Corona.css'
  function Corona()
  {
      return(
-         <div>
-        <form>
-            <div className="conatiner">
-  <div class="form-group row">
-    <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-    <div class="col-sm-10">
-      <input type="email" class="form-control" id="inputEmail3" placeholder="Email" />
-    </div>
+         <div className="padding1">
+           <div className="box">
+             <div className="row g-3">
+             <div className="col">
+             <label for="validationDefault01" class="form-label">Age</label>
+    <input type="number" class="form-control" placeholder="Age" aria-label="Age" />
+ 
   </div>
-  <div class="form-group row">
-    <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Password" />
-    </div>
-  </div>
-  <fieldset class="form-group">
-  
-      <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
-          <h5 class="form-check-label" for="gridRadios1">
-          <div className="padding1">
-            First radio</div>
-          </h5>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
-          <h5 class="form-check-label" for="gridRadios2">
-            Second radio
-          </h5>
-        </div>
-        <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3"/>
-          <h5 class="form-check-label" for="gridRadios3">
-            Third  radio
-          </h5>
-        </div>
-      </div>
-   
-  </fieldset>
-  <div class="form-group row">
-    <div class="col-sm-2">Checkbox</div>
-    <div class="col-sm-10">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck1" />
-        <h5 class="form-check-label" for="gridCheck1">
-          Example checkbox
-        </h5>
-      </div>
-    </div>
-  </div>
-  <div class="form-group row">
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </div>
-  </div></div>
-</form>
-    </div>      
+  <div className="col">
+  <label for="validationDefault04" class="form-label">Gender</label>
+    <select class="form-select" id="validationDefault04" required>
+      <option selected disabled value="">Choose...</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Transgender</option>
+    </select>
+  </div></div><br/><br/>
+  <span>**Please select the suitable symptoms by turinng on the checkboxes**  </span>
+            <div class="form-check form-switch">
+  <input class="form-check-input ml-2  " type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label mt-1 " for="flexSwitchCheckDefault">Fever</label>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label" for="flexSwitchCheckDefault">Dry-Cough</label>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label" for="flexSwitchCheckDefault">Difficulty-in-Brething</label>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label" for="flexSwitchCheckDefault">Sore-Throat</label><br/>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label mt-1" for="flexSwitchCheckDefault">Tiredness</label>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label" for="flexSwitchCheckDefault">Nasal-Congestion</label>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label" for="flexSwitchCheckDefault">Pains</label><br/>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label mt-1" for="flexSwitchCheckDefault">Runny-Nose</label>
+  <input class="form-check-input ml-2" type="checkbox" id="flexSwitchCheckDefault" />
+  <label class="form-check-label" for="flexSwitchCheckDefault">Diarrhea</label>
+</div><br/>
+<button type="button" class="btn btn-primary btn-block">submit</button>
+</div>
+</div>    
             
           
              
