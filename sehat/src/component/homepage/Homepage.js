@@ -70,8 +70,9 @@ function Homepage() {
                   <div className="col-3 screen-agile text-right">
                     <i className="fas fa-syringe" />
                   </div>
-                  <div className="col-9 screen-agile-2">
-                    <h5 ><div onClick={handleClick} className="Click">Heart rate</div></h5>
+                  <div className="col-9 screen-agile-2 text-primary">
+                    <div onClick={handleClick} className="Click">
+                      <h5>Heart rate</h5></div>
                     <p>You can predict the heart rate just by enetring basic details like heat rate using heart rate monitoring</p>
                   </div>
                 </div></div><br/>
@@ -80,8 +81,9 @@ function Homepage() {
                     <div className="col-3 screen-agile text-right mt">
                       <i className="fas fa-syringe" />
                     </div>
-                    <div className="col-9 screen-agile-2 ">
-                      <h5><div onClick={handleClick2} className="Click">Based on Symptoms</div></h5>
+                    <div className="col-9 screen-agile-2  text-primary">
+                      <div onClick={handleClick2} className="Click">                      
+                      <h5>Based on Symptoms</h5></div>
                       <p>Enter the synmptoms you are facing and we will predict your disease.</p>
                     </div>
                   </div></div><br/>
@@ -90,8 +92,9 @@ function Homepage() {
                     <div className="col-3 screen-agile text-right ">
                       <i className="fas fa-syringe" />
                     </div>
-                  <div className="col-9 screen-agile-2">
-                    <h5><div onClick={handleClick3} className="Click">Diabites</div></h5>
+                  <div className="col-9 screen-agile-2  text-primary">
+                    <div onClick={handleClick3} className="Click">
+                    <h5>Diabites</h5></div>
                     <p >Enter the blood glucose level in the body and the model will do prediction for Diabites</p>
                   </div></div></div><br/>
                   <div className="box">
@@ -99,8 +102,9 @@ function Homepage() {
                     <div className="col-3 screen-agile text-right ">
                       <i className="fas fa-syringe" />
                     </div>
-                  <div className="col-9 screen-agile-2">
-                    <h5><div onClick={handleClick4} className="Click">Corona</div></h5>
+                  <div className="col-9 screen-agile-2  text-primary">
+                    <div onClick={handleClick4} className="Click"></div>
+                    <h5>Corona</h5>
                     <p>Ente the basic details like oxygen level</p>
                   </div></div></div>
                 </div>
