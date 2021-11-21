@@ -51,7 +51,7 @@
         }
         return (
             <div className="padding1">
-                <img src={userlogin} alt="login"/>
+              
                     
             
                 <div className="Login">

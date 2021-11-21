@@ -49,7 +49,7 @@ function Register() {
     return (
       <div className="padding2">
            
-                <img src={doctor} alt='d' />
+                
         <div className="register">
            
            <h1>Register</h1>
@@ -59,7 +59,7 @@ function Register() {
            <input type="contact" name="contactNo" value={user.contactNo} placeholder="Enter your contact number"onChange={handleChange}></input>
            <input type="password" name="password" value={user.password} placeholder="Enter Your Password"onChange={handleChange}></input>
            <input type="password" name="reEnterPassword" value={user.reEnterPassword} placeholder="Re Enter your password"onChange={handleChange}></input>
-           <div className="container">
+          
                 <div className="row">
                     <div className=" col-6 pt-2">
                     <select value={user.gender} onChange={handleChange} name="gender" >
@@ -71,7 +71,7 @@ function Register() {
                         <input type="text" name="pincode" value={user.pincode} placeholder="Pincode"onChange={handleChange}></input>
                     </div>
                 </div>
-            </div>
+            
           
           
             <div className="Button" onClick={register}>Register</div>

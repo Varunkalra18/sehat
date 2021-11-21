@@ -116,9 +116,9 @@ import './Navbar.css'
                     </li>
                   </ul>
                   
-                  <a className="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3" onClick={logout} data-toggle="modal" data-target="#exampleModalCenter1">
-                    <i className="fas fa-sign-in-alt mr-2" />Logout</a>
-                </div>           
+                  <div className="login-button ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3 text-primary" onClick={logout} data-toggle="modal" data-target="#exampleModalCenter1">
+                    <i className="fas fa-sign-in-alt mr-2 "/>Logout
+                </div> </div>        
             </nav>
         </div>
       </div>
