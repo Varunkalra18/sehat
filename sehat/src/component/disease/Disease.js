@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios"
 import './Disease.css'
 
+
 function Disease()
 {
   

@@ -1,14 +1,17 @@
 import React from "react";
 import './Symptoms.css'
+import './main'
+
 function Symptoms()
 {
+  
     return(
         <div>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <title>SEHAT-Disease prediction</title>
-        <link rel="stylesheet" href="style.css" />
+     
         <div className="formdiv">
           <form className="form11" action="/prediction" method="POST">
             <fieldset>
@@ -746,6 +749,9 @@ function Symptoms()
           </form>
         </div>
       </div>
+//Main.js 
+
+
 
     )
 }
