@@ -1,29 +1,46 @@
 import React from "react";
 import b3 from '../images/b3.png'
-import {useHistory} from "react-router-dom"
+import {useHistory} from "react-router"
 import axios from "axios";
+import {useState} from "react"
 import List from "./List"
+
 function View()
  {
+  const [appointed, addAppoint] = useState([
+    
+  ])
+  let ap = [] ;
+  const his = ()=>{
+    axios.get("http://localhost:9002/viewappointment")
+  .then((res)=>{
+      if(res.data.code == 404)
+      {
+          alert("No Appointment Today")
+      }
+      else{
+           
+          //return(<List data = {res.data}/>)
+          var count = 0 ;
+          res.data.map((uses)=>{
+            ap += uses
+          })
+          console.log(ap)
+          addAppoint({
+            ...appointed,
+            ap
+          })
+      }
+  })
+  //console.log("aaa",appointed[1])
+  return ;
+  }
+//his()
     const history = useHistory()
     const book = () => {
         history.push("/admin_shedule")
     }
-    const viw = ()=>{
-        axios.get("http://localhost:9002/viewappointment")
-        .then((res)=>{
-            if(res.data.code == 404)
-            {
-                alert("No Appointment Today")
-            }
-            else{
-                 
-                //return(<List data = {res.data}/>)
-                console.log(res.data)
-                history.push("/list",res.data)
-            }
-        })
-    }
+
      return(
         <div className="row why-choose-agile-grids-top">
             <div className="col-lg-4 agileits-w3layouts-grid">
@@ -45,7 +62,7 @@ function View()
                       <i className="fas fa-syringe" />
                     </div>
                   </div>
-                  <div className="col-9 agile-why-text-2" onClick={viw}>
+                  <div className="col-9 agile-why-text-2" >
                     <h4 className="text-dark font-weight-bold mb-3">
                     <h4 className="text-dark font-weight-bold mb-3">View Pending Appointment</h4></h4>
                     
@@ -55,6 +72,14 @@ function View()
             <div className="col-lg-4 agileits-w3layouts-grid img text-center spacing">
                 <img src={b3} alt=" " className="img-fluid" />
               </div>
+              <hr/>
+              <button class="btn btn-success" onClick= {his}>Show</button>
+              {appointed.map((use)=>{
+                return(<div><List useg = {use}/></div>)
+              })}
+              
+              
+            
             </div>
 
      )

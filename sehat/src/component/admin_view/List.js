@@ -1,10 +1,12 @@
 import React from 'react'
 
 function List(props) {
-    let da = props
+    
+    // console.log(props.useg)
+    console.log(props.useg)
     return (
         <div>
-            {da}
+            Varun kalra
         </div>
     )
 }

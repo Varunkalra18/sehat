@@ -86,14 +86,14 @@ function Donationform()
             </div>
             <div className="col-75">
               <select id="Blood group" name="bloodgroup" value={donates.bloodgroup} onChange={handleChange}>
-                <option>A+</option>
-                <option>B+</option>
-                <option>AB+</option>
-                <option>AB-</option>
-                <option>B-</option>
-                <option>A-</option>
-                <option>O+</option>
-                <option>O-</option>
+                <option value="A+">A+</option>
+                <option value="B+">B+</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="B-">B-</option>
+                <option value="A-">A-</option>
+                <option  value="O+">O+</option>
+                <option value="O-">O-</option>
               </select>
             </div>
           </div>

@@ -216,22 +216,42 @@ app.get("/viewappointment", (req,res)=>{
         }
     })
 })
-app.get("/sendAnnouncement", (req,res) =>{
+app.post("/sendAnnouncement", (req,res) =>{
     console.log("WE are in send Announcement")
-    var mailOption = {
-        from:"healthcaresehat@gail.com",
-        to:"kalravarun1999@gmail.com",
-        subject:"Mail for blood requirement",
-        text:"Thanks for your interest in donating blood, Your Blood can save a persons life, Thanks and regards."
-    }
-    transporter.sendMail(mailOption,(err,info)=>{
-        if(err){
+    const {bloodG} = req.body
+    // console.log(bloodG)
+    dona.find({bloodgroup:bloodG}, (err,data)=>{
+        if(err)
+        {
             console.log(err)
+            res.send({message:"No matching blood group found"})
         }
         else{
-            console.log("Email sent"+ info.response)
+            var ar = []
+            data.map((em)=>{
+                ar.push(em.email)
+            })
+            ar.push("kalravarun1999@gmail.com")
+            ar.push("pandit.tejas2017@gmail.com")
+            console.log(ar)
+            var mailOption = {
+                from:"healthcaresehat@gail.com",
+                to:ar,
+                subject:"Mail for blood requirement",
+                text:"Thanks for your interest in donating blood, Your Blood can save a persons life, Thanks and regards."
+            }
+            transporter.sendMail(mailOption,(err,info)=>{
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log("Email sent"+ info.response)
+                }
+            })
         }
+        
     })
+    
     res.send({message:"successfull"})
 })
 app.listen(9002, ()=>{

@@ -9,7 +9,7 @@ import axios from 'axios';
 import Disease from './component/disease/Disease'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
-
+import Bloodanc from "./component/admin_home/Bloodanc"
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import View from "./component/admin_view/View"
 import Donationform from './component/donationform/Donationform'
@@ -49,6 +49,7 @@ function App() {
           <Route path="/symptoms"><Symptoms></Symptoms></Route>
            <Route path="/diabities"><Diabites></Diabites></Route>
            <Route path="/corona"><Corona></Corona></Route>
+           <Route path="/Bloodanc"><Bloodanc></Bloodanc></Route>
           <Redirect to="/"/>
         </Switch>
       </Router> }
