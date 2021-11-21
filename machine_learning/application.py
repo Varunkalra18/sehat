@@ -2,15 +2,14 @@ from flask import  Flask, flash, redirect, render_template, request, jsonify
 from flask_session import Session
 from tempfile  import mkdtemp
 import datetime
-#from sklearn.ensemble import RandomForestClassifier
 import numpy as np
 import pickle
 from flask_cors import CORS
-# from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler
 
 app = Flask(__name__)
 CORS(app)
-# scalar = StandardScaler()
+scalar = StandardScaler()
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 
@@ -37,7 +36,7 @@ def home():
 @app.route("/heartdiseaseprediction", methods=["GET","POST"])
 def prediction():
     # loading knn model
-    #randomforest = pickle.load(open('./production/randomforest_heart.pkl', 'rb'))
+    randomforest = pickle.load(open('./production/knn_heart.pkl', 'rb'))
     if request.method == "GET":
         print("____________________________________________________we are in pred")
         return render_template("predictionForm.html")
@@ -73,16 +72,24 @@ def prediction():
         print("cf",cf)
         thales = request.json['thales']
         print("thales",thales)
+        features = [age,gender,cp,trestbps,chol,fbs,recg,mhr,ia,dind,slope,cf,thales]
+        print("features",features)
+        final_features = np.asarray(features).reshape(1, -1)
+        print("final features",final_features)
+        prediction = randomforest.predict(final_features)
+        print("prediction",prediction)
+        output = round(prediction[0], 2)
         output = 1
-        #print("final features",output)        
-        if output == 0:
-            result = "The patient is not likely to have heart disease!"
+        print("output",output)  
+        return output      
+        #if output == 0:
+            #result = "The patient is not likely to have heart disease!"
             #db.execute("INSERT INTO dashbord (dates, result) VALUES (:dates, :result)", dates = dates, result = result)
-            return render_template('predictionForm.html',result = 'The patient is not likely to have heart disease!')
-        else:
-            result = "The patient is likely to have heart disease!"
+            # return render_template('predictionForm.html',result = 'The patient is not likely to have heart disease!')
+        #else:
+            #result = "The patient is likely to have heart disease!"
             #db.execute("INSERT INTO dashbord (dates, result) VALUES (:dates, :result)", dates = dates, result = result)
-            return render_template('predictionForm.html',result = 'The patient is likely to have heart disease!')
+            #return render_template('predictionForm.html',result = 'The patient is likely to have heart disease!')
 
 if __name__ == "__main__":
     app.run(debug = True)
