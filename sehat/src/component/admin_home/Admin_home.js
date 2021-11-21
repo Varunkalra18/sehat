@@ -6,13 +6,18 @@ import Disease from '../disease/Disease';
 import b3 from '../images/b3.png';
 import './Admin_home.css';
 import View from "../admin_view/View"
+import axios from 'axios';
 function Admin_home()
 {
     let history=useHistory()
   
     function handleClick2()
     {
-        history.push('./admin_search')
+        axios.get("http://localhost:9002/sendAnnouncement")
+        .then((res)=>{
+          alert(res.data)
+        })
+        // history.push('./admin_search')
     }
     function handleClick3()
     {
