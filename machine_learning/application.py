@@ -91,6 +91,24 @@ def prediction():
             #db.execute("INSERT INTO dashbord (dates, result) VALUES (:dates, :result)", dates = dates, result = result)
             #return render_template('predictionForm.html',result = 'The patient is likely to have heart disease!')
 
+# disease prediction based on symptoms
+@app.route("/diseaseprediction", methods=["GET","POST"])
+def prediction():
+    disease_model = pickle.load(open('./production/diseasePredictor.pkl', 'rb'))
+    if request.method == "GET":
+        print("____________________________________________________we are in pred")
+        return render_template("predictionForm.html")
+    else:
+        print("____________________________________we are in prediction with post")
+        # data recieving from form ...to be done
+        #................hardcode............................
+        newdata = [[1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+            0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]]
+        output = disease_model.predict(newdata)  
+        return output
+
+# 
+
 if __name__ == "__main__":
     app.run(debug = True)
 
