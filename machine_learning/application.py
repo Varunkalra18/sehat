@@ -117,17 +117,27 @@ def diabetesprediction():
     diabetes_model = pickle.load(open('./production/knn_diabetes.pkl', 'rb'))
     if request.method == "GET":
         output = [3]
-        print("____________________________________________________we are in pred")
+        print("____________________________________________________we are in diabities")
         return output
     else:
-        print("____________________________________we are in prediction with post")
+        print("____________________________________we are in prediction with post diabities")
         # data recieving from form ...to be done
         #................hardcode............................
         newdata = [[1, 1, 0, 0]]
-        output = diabetes_model.predict(newdata) 
-        print(output) 
+        output = diabetes_model.predict(newdata)
+        glucoseLevel = request.json['glucoseLevel']
+        insulin = request.json["Insulin"]
+        bmi = request.json["Bmi"]
+        age = request.json["Age"]
+        
         return output
-
+    
+@app.route("/corona", methods=["GET","POST"])
+def covid():
+    if(request.method == "GET"):
+        print("WE are in corona tracker")
+    else:
+        return "WOOO"
 if __name__ == "__main__":
     app.run(debug = True)
 

@@ -25,7 +25,7 @@ function Homepage() {
  var history3=useHistory()
  function handleClick3()
  {
-   history3.push('/diabites');
+   history3.push('/diabities');
  }
  var history4=useHistory()
  function handleClick4()

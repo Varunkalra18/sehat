@@ -21,7 +21,7 @@ import Admin_home from './component/admin_home/Admin_home'
 import Admin_login from './component/admin_login/Admin_login'
 import View_appointment from './component/view_appointment/View_appointment'
 import Symptoms from './component/symptoms/Symtoms'
-import Diabites from './component/diabites/Diabities'
+import Diabities from './component/diabities/Diabities'
 import Corona from './corona/Corona'
 import List from "./component/admin_view/List"
 
@@ -47,7 +47,7 @@ function App() {
           <Route path="/list"><List/></Route>
           <Route path="/view_appointment"><View_appointment></View_appointment></Route>
           <Route path="/symptoms"><Symptoms></Symptoms></Route>
-           <Route path="/diabities"><Diabites></Diabites></Route>
+           <Route path="/diabities"><Diabities></Diabities></Route>
            <Route path="/corona"><Corona></Corona></Route>
            <Route path="/Bloodanc"><Bloodanc></Bloodanc></Route>
           <Redirect to="/"/>
