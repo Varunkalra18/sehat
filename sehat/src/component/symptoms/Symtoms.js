@@ -1,755 +1,221 @@
 import React from "react";
 import './Symptoms.css'
-import './main'
+import {useState} from "react"
+import axios from "axios";
 
 function Symptoms()
 {
-  
+  const [symptoms,setsym] = useState({
+    symptom1:"",
+    symptom2:"",
+    symptom3:"",
+    symptom4:"",
+    symptom5:""
+  })
+ 
+  const handleChanges = (e) => {
+    const {name,value} = e.target
+    setsym({
+      ...symptoms,
+      [name]:value
+    })
+  }
+  console.log(symptoms)
+  const submit = () => {
+    console.log(symptoms)
+    axios.post("http://127.0.0.1:5000/diseaseprediction",symptoms)
+    .then((res)=>{
+      alert(res.data)
+    })
+  }
     return(
-        <div>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-        <title>SEHAT-Disease prediction</title>
+     <div>
+        <h1>Disease prediction based on Symptoms</h1>
+      <div className="key">
+        <div className="box">
+       <select class="form-select form-select-lg mb-3" value={symptoms.symptom1} name="symptom1" onChange={handleChanges} aria-label=".form-select-lg example">        
+          
+          <option value="1">Itching</option>
+          <option value="2">Skin Rash</option>
+          <option value="3">Chiils</option>
+          <option value="4">Vomiting </option>
+          <option value="5">Cough</option>
+          <option value="6">Fatigue</option>
+          <option value="7">High Fever</option>
+          <option value="8">Headache</option>
+          <option value="9">Yellowish Skin</option>
+          <option value="10">Nausea</option>
+          <option value="11">Loss of Appetite</option>
+          <option value="12">Back Pain</option>
+          <option value="13">Abdominal Pain</option>
+          <option value="14">Diarrhoea</option>
+          <option value="15">Mild Fever</option>
+          <option value="16">Yellowing of Eyes</option>
+          <option value="17">Chest Pain</option>
+          <option value="18">Fast Heart Rate</option>
+          <option value="19">Pain During Bowel Movements</option>
+          <option value="20">Neck Pain</option>
+          <option value="21">Stiff Neck</option>
+          <option value="22">Swelling Joints</option>
+          <option value="23">Loss Of Balance</option>
+          <option value="24">Continious Feel of Urine</option>
+          <option value="25">Depression</option>
+          <option value="26">Irritability</option>
+          <option value="27">Muscle Pain</option>
+          <option value="28">Abnormal Mensuration</option>
+          <option value="29">Polyuria</option>
+          <option value="30">Coma</option>
+          <option value="31">Small Dents in Nails</option>
+          <option value="32">Blister</option>
+        </select>
+    
+<select class="form-select form-select-lg mb-3" name="symptom2" onChange={handleChanges} value={symptoms.symptom2} aria-label=".form-select-lg example">
+      
+  <option selected>Select second Symptom</option>
+  <option value="1">Itching</option>
+  <option value="2">Skin Rash</option>
+  <option value="3">Chiils</option>
+  <option value="4">Vomiting </option>
+  <option value="5">Cough</option>
+  <option value="6">Fatigue</option>
+  <option value="7">High Fever</option>
+  <option value="8">Headache</option>
+  <option value="9">Yellowish Skin</option>
+  <option value="10">Nausea</option>
+  <option value="11">Loss of Appetite</option>
+  <option value="12">Back Pain</option>
+  <option value="13">Abdominal Pain</option>
+  <option value="14">Diarrhoea</option>
+  <option value="15">Mild Fever</option>
+  <option value="16">Yellowing of Eyes</option>
+  <option value="17">Chest Pain</option>
+  <option value="18">Fast Heart Rate</option>
+  <option value="19">Pain During Bowel Movements</option>
+  <option value="20">Neck Pain</option>
+  <option value="21">Stiff Neck</option>
+  <option value="22">Swelling Joints</option>
+  <option value="23">Loss Of Balance</option>
+  <option value="24">Continious Feel of Urine</option>
+  <option value="25">Depression</option>
+  <option value="26">Irritability</option>
+  <option value="27">Muscle Pain</option>
+  <option value="28">Abnormal Mensuration</option>
+  <option value="29">Polyuria</option>
+  <option value="30">Coma</option>
+  <option value="31">Small Dents in Nails</option>
+<option value="32">Blister</option>
+</select>
+<select class="form-select form-select-lg mb-3" name="symptom3" onChange={handleChanges} value={symptoms.symptom3} aria-label=".form-select-lg example">
+        
+  <option selected>Select third Symptoms</option>
+  <option value="1">Itching</option>
+  <option value="2">Skin Rash</option>
+  <option value="3">Chiils</option>
+  <option value="4">Vomiting </option>
+  <option value="5">Cough</option>
+  <option value="6">Fatigue</option>
+  <option value="7">High Fever</option>
+  <option value="8">Headache</option>
+  <option value="9">Yellowish Skin</option>
+  <option value="10">Nausea</option>
+  <option value="11">Loss of Appetite</option>
+  <option value="12">Back Pain</option>
+  <option value="13">Abdominal Pain</option>
+  <option value="14">Diarrhoea</option>
+  <option value="15">Mild Fever</option>
+  <option value="16">Yellowing of Eyes</option>
+  <option value="17">Chest Pain</option>
+  <option value="18">Fast Heart Rate</option>
+  <option value="19">Pain During Bowel Movements</option>
+  <option value="20">Neck Pain</option>
+  <option value="21">Stiff Neck</option>
+  <option value="22">Swelling Joints</option>
+  <option value="23">Loss Of Balance</option>
+  <option value="24">Continious Feel of Urine</option>
+  <option value="25">Depression</option>
+  <option value="26">Irritability</option>
+  <option value="27">Muscle Pain</option>
+  <option value="28">Abnormal Mensuration</option>
+  <option value="29">Polyuria</option>
+  <option value="30">Coma</option>
+  <option value="31">Small Dents in Nails</option>
+<option value="32">Blister</option>
+</select>
+<select class="form-select form-select-lg mb-3" name="symptom4" onChange={handleChanges} value={symptoms.symptom4} aria-label=".form-select-lg example">
+       
+  <option selected>Select forth Symptoms</option>
+  <option value="1">Itching</option>
+  <option value="2">Skin Rash</option>
+  <option value="3">Chiils</option>
+  <option value="4">Vomiting </option>
+  <option value="5">Cough</option>
+  <option value="6">Fatigue</option>
+  <option value="7">High Fever</option>
+  <option value="8">Headache</option>
+  <option value="9">Yellowish Skin</option>
+  <option value="10">Nausea</option>
+  <option value="11">Loss of Appetite</option>
+  <option value="12">Back Pain</option>
+  <option value="13">Abdominal Pain</option>
+  <option value="14">Diarrhoea</option>
+  <option value="15">Mild Fever</option>
+  <option value="16">Yellowing of Eyes</option>
+  <option value="17">Chest Pain</option>
+  <option value="18">Fast Heart Rate</option>
+  <option value="19">Pain During Bowel Movements</option>
+  <option value="20">Neck Pain</option>
+  <option value="21">Stiff Neck</option>
+  <option value="22">Swelling Joints</option>
+  <option value="23">Loss Of Balance</option>
+  <option value="24">Continious Feel of Urine</option>
+  <option value="25">Depression</option>
+  <option value="26">Irritability</option>
+  <option value="27">Muscle Pain</option>
+  <option value="28">Abnormal Mensuration</option>
+  <option value="29">Polyuria</option>
+  <option value="30">Coma</option>
+  <option value="31">Small Dents in Nails</option>
+<option value="32">Blister</option>
+</select>
+<select class="form-select form-select-lg mb-3" name="symptom5" onChange={handleChanges} value={symptoms.symptom5} aria-label=".form-select-lg example">
      
-        <div className="formdiv">
-          <form className="form11" action="/prediction" method="POST">
-            <fieldset>
-              <legend style={{margin: '0 auto'}}>
-                <h1 style={{color: 'white'}}>SEHAT-DISEASE PREDICTION</h1>
-              </legend>
-              <br />
-              <div className="card card-body">
-                <div className="container">
-                  <h2>Please Select SYMPTOM 1:</h2>
-                  <div className="select-box">
-                    <div className="options-container">
-                      <div className="option">
-                        <input type="radio" className="radio" id="automobiles" defaultValue="itching" name="category" />
-                        <label htmlFor="automobiles">ITCHING </label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="skin_rash" id="film" name="category" />
-                        <label htmlFor="film">SKIN RASH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chills" id="science" name="category" />
-                        <label htmlFor="science">CHILLS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="vomiting" id="art" name="category" />
-                        <label htmlFor="art">VOMITING</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fatigue" id="music" name="category" />
-                        <label htmlFor="music">FATIGUE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="cough" id="travel" name="category" />
-                        <label htmlFor="travel">COUGH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="high_fever" id="sports" name="category" />
-                        <label htmlFor="sports">HIGH FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="headache" id="news" name="category" />
-                        <label htmlFor="news">HEADACHE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowish_skin" id="yellowish_skin" name="category" />
-                        <label htmlFor="yellowish_skin">YELLOWISH SKIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="nausea" id="nausea" name="category" />
-                        <label htmlFor="nausea">NAUSEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_appetite" id="loss_of_appetite" name="category" />
-                        <label htmlFor="loss_of_appetite">LOSS OF APPETITE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="back_pain" id="back_pain" name="category" />
-                        <label htmlFor="back_pain">BACK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abdominal_pain" id="abdominal_pain" name="category" />
-                        <label htmlFor="abdominal_pain ">ABDOMINAL PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="diarrhoea" id="diarrhoea" name="category" />
-                        <label htmlFor="diarrhoea">DIARRHOEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="mild_fever" id="mild_fever" name="category" />
-                        <label htmlFor="mild_fever">MILD FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowing_of_eyes" id="yellowing_of_eyes" name="category" />
-                        <label htmlFor="yellowing_of_eyes">YELLOWING OF EYES</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="malaise" id="malaise" name="category" />
-                        <label htmlFor="malaise">MALAISE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chest_pain" id="chest_pain" name="category" />
-                        <label htmlFor="chest_pain">CHEST PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fast_heart_rate" id="fast_heart_rate" name="category" />
-                        <label htmlFor="fast_heart_rate">FAST HEART RATE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="pain_during_bowel_movements" id="pain_during_bowel_movements" name="category" />
-                        <label htmlFor="pain_during_bowel_movements">PAIN DURING BOWEL MOVEMENTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="neck_pain" id="neck_pain" name="category" />
-                        <label htmlFor="neck_pain">NECK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="stiff_neck" id="stiff_neck" name="category" />
-                        <label htmlFor="stiff_neck">STIFF NECK</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="swelling_joints" id="swelling_joints" name="category" />
-                        <label htmlFor="swelling_joints">SWELLING JOINTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_balance" id="loss_of_balance" name="category" />
-                        <label htmlFor="loss_of_balance">LOSS OF BALANCE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="continuous_feel_of_urine" id="continuous_feel_of_urine" name="category" />
-                        <label htmlFor="continuous_feel_of_urine">CONTINIOUS FEEL OF URINE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="depression" id="depression" name="category" />
-                        <label htmlFor="depression">DEPRESSION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="irritability" id="irritability" name="category" />
-                        <label htmlFor="irritability">IRRITABILITY</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="muscle_pain" id="muscle_pain" name="category" />
-                        <label htmlFor="muscle_pain">MUSCLE PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abnormal_menstruation" id="abnormal_menstruation" name="category" />
-                        <label htmlFor="abnormal_menstruation">ABNORMAL MENSTURATION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="polyuria" id="polyuria" name="category" />
-                        <label htmlFor="polyuria">POLYURIA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="coma" id="coma" name="category" />
-                        <label htmlFor="coma">COMA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="small_dents_in_nails" id="small_dents_in_nails" name="category" />
-                        <label htmlFor="small_dents_in_nails">SMALL DENTS IN NAILS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="blister" id="blister" name="category" />
-                        <label htmlFor="blister">BLISTER</label>
-                      </div>
-                    </div>
-                    <div className="selected">
-                      Select SYMPTOM 1
-                    </div>
-                    <div className="search-box">
-                      <input type="text" placeholder="Start Typing..." />
-                    </div>
-                  </div>
-                  {/* SYMPTOM 2*/}
-                  <h2>Please Select SYMPTOM 2:</h2>
-                  <div className="select-box">
-                    <div className="options-container">
-                      <div className="option">
-                        <input type="radio" className="radio" id="automobiles" defaultValue="itching" name="category" />
-                        <label htmlFor="automobiles">ITCHING </label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="skin_rash" id="film" name="category" />
-                        <label htmlFor="film">SKIN RASH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chills" id="science" name="category" />
-                        <label htmlFor="science">CHILLS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="vomiting" id="art" name="category" />
-                        <label htmlFor="art">VOMITING</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fatigue" id="music" name="category" />
-                        <label htmlFor="music">FATIGUE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="cough" id="travel" name="category" />
-                        <label htmlFor="travel">COUGH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="high_fever" id="sports" name="category" />
-                        <label htmlFor="sports">HIGH FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="headache" id="news" name="category" />
-                        <label htmlFor="news">HEADACHE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowish_skin" id="yellowish_skin" name="category" />
-                        <label htmlFor="yellowish_skin">YELLOWISH SKIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="nausea" id="nausea" name="category" />
-                        <label htmlFor="nausea">NAUSEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_appetite" id="loss_of_appetite" name="category" />
-                        <label htmlFor="loss_of_appetite">LOSS OF APPETITE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="back_pain" id="back_pain" name="category" />
-                        <label htmlFor="back_pain">BACK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abdominal_pain" id="abdominal_pain" name="category" />
-                        <label htmlFor="abdominal_pain ">ABDOMINAL PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="diarrhoea" id="diarrhoea" name="category" />
-                        <label htmlFor="diarrhoea">DIARRHOEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="mild_fever" id="mild_fever" name="category" />
-                        <label htmlFor="mild_fever">MILD FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowing_of_eyes" id="yellowing_of_eyes" name="category" />
-                        <label htmlFor="yellowing_of_eyes">YELLOWING OF EYES</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="malaise" id="malaise" name="category" />
-                        <label htmlFor="malaise">MALAISE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chest_pain" id="chest_pain" name="category" />
-                        <label htmlFor="chest_pain">CHEST PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fast_heart_rate" id="fast_heart_rate" name="category" />
-                        <label htmlFor="fast_heart_rate">FAST HEART RATE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="pain_during_bowel_movements" id="pain_during_bowel_movements" name="category" />
-                        <label htmlFor="pain_during_bowel_movements">PAIN DURING BOWEL MOVEMENTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="neck_pain" id="neck_pain" name="category" />
-                        <label htmlFor="neck_pain">NECK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="stiff_neck" id="stiff_neck" name="category" />
-                        <label htmlFor="stiff_neck">STIFF NECK</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="swelling_joints" id="swelling_joints" name="category" />
-                        <label htmlFor="swelling_joints">SWELLING JOINTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_balance" id="loss_of_balance" name="category" />
-                        <label htmlFor="loss_of_balance">LOSS OF BALANCE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="continuous_feel_of_urine" id="continuous_feel_of_urine" name="category" />
-                        <label htmlFor="continuous_feel_of_urine">CONTINIOUS FEEL OF URINE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="depression" id="depression" name="category" />
-                        <label htmlFor="depression">DEPRESSION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="irritability" id="irritability" name="category" />
-                        <label htmlFor="irritability">IRRITABILITY</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="muscle_pain" id="muscle_pain" name="category" />
-                        <label htmlFor="muscle_pain">MUSCLE PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abnormal_menstruation" id="abnormal_menstruation" name="category" />
-                        <label htmlFor="abnormal_menstruation">ABNORMAL MENSTURATION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="polyuria" id="polyuria" name="category" />
-                        <label htmlFor="polyuria">POLYURIA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="coma" id="coma" name="category" />
-                        <label htmlFor="coma">COMA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="small_dents_in_nails" id="small_dents_in_nails" name="category" />
-                        <label htmlFor="small_dents_in_nails">SMALL DENTS IN NAILS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="blister" id="blister" name="category" />
-                        <label htmlFor="blister">BLISTER</label>
-                      </div>
-                    </div>
-                    <div className="selected">
-                      Select SYMPTOM 2
-                    </div>
-                    <div className="search-box">
-                      <input type="text" placeholder="Start Typing..." />
-                    </div>
-                  </div>
-                  {/*SYMPTOM 3*/}
-                  <h2>Please Select SYMPTOM 3:</h2>
-                  <div className="select-box">
-                    <div className="options-container">
-                      <div className="option">
-                        <input type="radio" className="radio" id="automobiles" defaultValue="itching" name="category" />
-                        <label htmlFor="automobiles">ITCHING </label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="skin_rash" id="film" name="category" />
-                        <label htmlFor="film">SKIN RASH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chills" id="science" name="category" />
-                        <label htmlFor="science">CHILLS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="vomiting" id="art" name="category" />
-                        <label htmlFor="art">VOMITING</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fatigue" id="music" name="category" />
-                        <label htmlFor="music">FATIGUE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="cough" id="travel" name="category" />
-                        <label htmlFor="travel">COUGH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="high_fever" id="sports" name="category" />
-                        <label htmlFor="sports">HIGH FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="headache" id="news" name="category" />
-                        <label htmlFor="news">HEADACHE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowish_skin" id="yellowish_skin" name="category" />
-                        <label htmlFor="yellowish_skin">YELLOWISH SKIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="nausea" id="nausea" name="category" />
-                        <label htmlFor="nausea">NAUSEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_appetite" id="loss_of_appetite" name="category" />
-                        <label htmlFor="loss_of_appetite">LOSS OF APPETITE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="back_pain" id="back_pain" name="category" />
-                        <label htmlFor="back_pain">BACK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abdominal_pain" id="abdominal_pain" name="category" />
-                        <label htmlFor="abdominal_pain ">ABDOMINAL PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="diarrhoea" id="diarrhoea" name="category" />
-                        <label htmlFor="diarrhoea">DIARRHOEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="mild_fever" id="mild_fever" name="category" />
-                        <label htmlFor="mild_fever">MILD FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowing_of_eyes" id="yellowing_of_eyes" name="category" />
-                        <label htmlFor="yellowing_of_eyes">YELLOWING OF EYES</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="malaise" id="malaise" name="category" />
-                        <label htmlFor="malaise">MALAISE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chest_pain" id="chest_pain" name="category" />
-                        <label htmlFor="chest_pain">CHEST PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fast_heart_rate" id="fast_heart_rate" name="category" />
-                        <label htmlFor="fast_heart_rate">FAST HEART RATE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="pain_during_bowel_movements" id="pain_during_bowel_movements" name="category" />
-                        <label htmlFor="pain_during_bowel_movements">PAIN DURING BOWEL MOVEMENTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="neck_pain" id="neck_pain" name="category" />
-                        <label htmlFor="neck_pain">NECK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="stiff_neck" id="stiff_neck" name="category" />
-                        <label htmlFor="stiff_neck">STIFF NECK</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="swelling_joints" id="swelling_joints" name="category" />
-                        <label htmlFor="swelling_joints">SWELLING JOINTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_balance" id="loss_of_balance" name="category" />
-                        <label htmlFor="loss_of_balance">LOSS OF BALANCE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="continuous_feel_of_urine" id="continuous_feel_of_urine" name="category" />
-                        <label htmlFor="continuous_feel_of_urine">CONTINIOUS FEEL OF URINE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="depression" id="depression" name="category" />
-                        <label htmlFor="depression">DEPRESSION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="irritability" id="irritability" name="category" />
-                        <label htmlFor="irritability">IRRITABILITY</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="muscle_pain" id="muscle_pain" name="category" />
-                        <label htmlFor="muscle_pain">MUSCLE PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abnormal_menstruation" id="abnormal_menstruation" name="category" />
-                        <label htmlFor="abnormal_menstruation">ABNORMAL MENSTURATION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="polyuria" id="polyuria" name="category" />
-                        <label htmlFor="polyuria">POLYURIA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="coma" id="coma" name="category" />
-                        <label htmlFor="coma">COMA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="small_dents_in_nails" id="small_dents_in_nails" name="category" />
-                        <label htmlFor="small_dents_in_nails">SMALL DENTS IN NAILS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="blister" id="blister" name="category" />
-                        <label htmlFor="blister">BLISTER</label>
-                      </div>
-                    </div>
-                    <div className="selected">
-                      Select SYMPTOM 3
-                    </div>
-                    <div className="search-box">
-                      <input type="text" placeholder="Start Typing..." />
-                    </div>
-                  </div>
-                  {/*SYMPTOM 4*/}
-                  <h2>Please Select SYMPTOM 4:</h2>
-                  <div className="select-box">
-                    <div className="options-container">
-                      <div className="option">
-                        <input type="radio" className="radio" id="automobiles" defaultValue="itching" name="category" />
-                        <label htmlFor="automobiles">ITCHING </label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="skin_rash" id="film" name="category" />
-                        <label htmlFor="film">SKIN RASH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chills" id="science" name="category" />
-                        <label htmlFor="science">CHILLS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="vomiting" id="art" name="category" />
-                        <label htmlFor="art">VOMITING</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fatigue" id="music" name="category" />
-                        <label htmlFor="music">FATIGUE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="cough" id="travel" name="category" />
-                        <label htmlFor="travel">COUGH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="high_fever" id="sports" name="category" />
-                        <label htmlFor="sports">HIGH FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="headache" id="news" name="category" />
-                        <label htmlFor="news">HEADACHE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowish_skin" id="yellowish_skin" name="category" />
-                        <label htmlFor="yellowish_skin">YELLOWISH SKIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="nausea" id="nausea" name="category" />
-                        <label htmlFor="nausea">NAUSEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_appetite" id="loss_of_appetite" name="category" />
-                        <label htmlFor="loss_of_appetite">LOSS OF APPETITE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="back_pain" id="back_pain" name="category" />
-                        <label htmlFor="back_pain">BACK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abdominal_pain" id="abdominal_pain" name="category" />
-                        <label htmlFor="abdominal_pain ">ABDOMINAL PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="diarrhoea" id="diarrhoea" name="category" />
-                        <label htmlFor="diarrhoea">DIARRHOEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="mild_fever" id="mild_fever" name="category" />
-                        <label htmlFor="mild_fever">MILD FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowing_of_eyes" id="yellowing_of_eyes" name="category" />
-                        <label htmlFor="yellowing_of_eyes">YELLOWING OF EYES</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="malaise" id="malaise" name="category" />
-                        <label htmlFor="malaise">MALAISE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chest_pain" id="chest_pain" name="category" />
-                        <label htmlFor="chest_pain">CHEST PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fast_heart_rate" id="fast_heart_rate" name="category" />
-                        <label htmlFor="fast_heart_rate">FAST HEART RATE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="pain_during_bowel_movements" id="pain_during_bowel_movements" name="category" />
-                        <label htmlFor="pain_during_bowel_movements">PAIN DURING BOWEL MOVEMENTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="neck_pain" id="neck_pain" name="category" />
-                        <label htmlFor="neck_pain">NECK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="stiff_neck" id="stiff_neck" name="category" />
-                        <label htmlFor="stiff_neck">STIFF NECK</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="swelling_joints" id="swelling_joints" name="category" />
-                        <label htmlFor="swelling_joints">SWELLING JOINTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_balance" id="loss_of_balance" name="category" />
-                        <label htmlFor="loss_of_balance">LOSS OF BALANCE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="continuous_feel_of_urine" id="continuous_feel_of_urine" name="category" />
-                        <label htmlFor="continuous_feel_of_urine">CONTINIOUS FEEL OF URINE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="depression" id="depression" name="category" />
-                        <label htmlFor="depression">DEPRESSION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="irritability" id="irritability" name="category" />
-                        <label htmlFor="irritability">IRRITABILITY</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="muscle_pain" id="muscle_pain" name="category" />
-                        <label htmlFor="muscle_pain">MUSCLE PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abnormal_menstruation" id="abnormal_menstruation" name="category" />
-                        <label htmlFor="abnormal_menstruation">ABNORMAL MENSTURATION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="polyuria" id="polyuria" name="category" />
-                        <label htmlFor="polyuria">POLYURIA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="coma" id="coma" name="category" />
-                        <label htmlFor="coma">COMA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="small_dents_in_nails" id="small_dents_in_nails" name="category" />
-                        <label htmlFor="small_dents_in_nails">SMALL DENTS IN NAILS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="blister" id="blister" name="category" />
-                        <label htmlFor="blister">BLISTER</label>
-                      </div>
-                    </div>
-                    <div className="selected">
-                      Select SYMPTOM 4
-                    </div>
-                    <div className="search-box">
-                      <input type="text" placeholder="Start Typing..." />
-                    </div>
-                  </div>
-                  {/*SYMPTOM 5*/}
-                  <h2>Please Select SYMPTOM 5:</h2>
-                  <div className="select-box">
-                    <div className="options-container">
-                      <div className="option">
-                        <input type="radio" className="radio" id="automobiles" defaultValue="itching" name="category" />
-                        <label htmlFor="automobiles">ITCHING </label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="skin_rash" id="film" name="category" />
-                        <label htmlFor="film">SKIN RASH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chills" id="science" name="category" />
-                        <label htmlFor="science">CHILLS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="vomiting" id="art" name="category" />
-                        <label htmlFor="art">VOMITING</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fatigue" id="music" name="category" />
-                        <label htmlFor="music">FATIGUE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="cough" id="travel" name="category" />
-                        <label htmlFor="travel">COUGH</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="high_fever" id="sports" name="category" />
-                        <label htmlFor="sports">HIGH FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="headache" id="news" name="category" />
-                        <label htmlFor="news">HEADACHE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowish_skin" id="yellowish_skin" name="category" />
-                        <label htmlFor="yellowish_skin">YELLOWISH SKIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="nausea" id="nausea" name="category" />
-                        <label htmlFor="nausea">NAUSEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_appetite" id="loss_of_appetite" name="category" />
-                        <label htmlFor="loss_of_appetite">LOSS OF APPETITE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="back_pain" id="back_pain" name="category" />
-                        <label htmlFor="back_pain">BACK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abdominal_pain" id="abdominal_pain" name="category" />
-                        <label htmlFor="abdominal_pain ">ABDOMINAL PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="diarrhoea" id="diarrhoea" name="category" />
-                        <label htmlFor="diarrhoea">DIARRHOEA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="mild_fever" id="mild_fever" name="category" />
-                        <label htmlFor="mild_fever">MILD FEVER</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="yellowing_of_eyes" id="yellowing_of_eyes" name="category" />
-                        <label htmlFor="yellowing_of_eyes">YELLOWING OF EYES</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="malaise" id="malaise" name="category" />
-                        <label htmlFor="malaise">MALAISE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="chest_pain" id="chest_pain" name="category" />
-                        <label htmlFor="chest_pain">CHEST PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="fast_heart_rate" id="fast_heart_rate" name="category" />
-                        <label htmlFor="fast_heart_rate">FAST HEART RATE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="pain_during_bowel_movements" id="pain_during_bowel_movements" name="category" />
-                        <label htmlFor="pain_during_bowel_movements">PAIN DURING BOWEL MOVEMENTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="neck_pain" id="neck_pain" name="category" />
-                        <label htmlFor="neck_pain">NECK PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="stiff_neck" id="stiff_neck" name="category" />
-                        <label htmlFor="stiff_neck">STIFF NECK</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="swelling_joints" id="swelling_joints" name="category" />
-                        <label htmlFor="swelling_joints">SWELLING JOINTS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="loss_of_balance" id="loss_of_balance" name="category" />
-                        <label htmlFor="loss_of_balance">LOSS OF BALANCE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="continuous_feel_of_urine" id="continuous_feel_of_urine" name="category" />
-                        <label htmlFor="continuous_feel_of_urine">CONTINIOUS FEEL OF URINE</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="depression" id="depression" name="category" />
-                        <label htmlFor="depression">DEPRESSION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="irritability" id="irritability" name="category" />
-                        <label htmlFor="irritability">IRRITABILITY</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="muscle_pain" id="muscle_pain" name="category" />
-                        <label htmlFor="muscle_pain">MUSCLE PAIN</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="abnormal_menstruation" id="abnormal_menstruation" name="category" />
-                        <label htmlFor="abnormal_menstruation">ABNORMAL MENSTURATION</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="polyuria" id="polyuria" name="category" />
-                        <label htmlFor="polyuria">POLYURIA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="coma" id="coma" name="category" />
-                        <label htmlFor="coma">COMA</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="small_dents_in_nails" id="small_dents_in_nails" name="category" />
-                        <label htmlFor="small_dents_in_nails">SMALL DENTS IN NAILS</label>
-                      </div>
-                      <div className="option">
-                        <input type="radio" className="radio" defaultValue="blister" id="blister" name="category" />
-                        <label htmlFor="blister">BLISTER</label>
-                      </div>
-                    </div>
-                    <div className="selected">
-                      Select SYMPTOM 5
-                    </div>
-                    <div className="search-box">
-                      <input type="text" placeholder="Start Typing..." />
-                    </div>
-                  </div>
-                  <div className="select-box">
-                    <input className="button11" type="submit" defaultValue="Result" />
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-          </form>
-        </div>
-      </div>
-//Main.js 
+  <option selected>Select Five Symptoms</option>
+  <option value="1">Itching</option>
+  <option value="2">Skin Rash</option>
+  <option value="3">Chiils</option>
+  <option value="4">Vomiting </option>
+  <option value="5">Cough</option>
+  <option value="6">Fatigue</option>
+  <option value="7">High Fever</option>
+  <option value="8">Headache</option>
+  <option value="9">Yellowish Skin</option>
+  <option value="10">Nausea</option>
+  <option value="11">Loss of Appetite</option>
+  <option value="12">Back Pain</option>
+  <option value="13">Abdominal Pain</option>
+  <option value="14">Diarrhoea</option>
+  <option value="15">Mild Fever</option>
+  <option value="16">Yellowing of Eyes</option>
+  <option value="17">Chest Pain</option>
+  <option value="18">Fast Heart Rate</option>
+  <option value="19">Pain During Bowel Movements</option>
+  <option value="20">Neck Pain</option>
+  <option value="21">Stiff Neck</option>
+  <option value="22">Swelling Joints</option>
+  <option value="23">Loss Of Balance</option>
+  <option value="24">Continious Feel of Urine</option>
+  <option value="25">Depression</option>
+  <option value="26">Irritability</option>
+  <option value="27">Muscle Pain</option>
+  <option value="28">Abnormal Mensuration</option>
+  <option value="29">Polyuria</option>
+  <option value="30">Coma</option>
+  <option value="31">Small Dents in Nails</option>
+<option value="32">Blister</option>
+</select><br/><br/>
+<button type="button" class="btn btn-primary btn-block" onClick={submit}>submit</button>
+      </div></div></div>
+
 
 
 

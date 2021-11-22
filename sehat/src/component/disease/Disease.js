@@ -33,7 +33,7 @@ function Disease()
   console.log(heartData)
   const call = ()=>{
     axios.post("http://127.0.0.1:5000/heartdiseaseprediction", heartData)
-    .then(res=>alert(res))
+    .then(res=>alert(res.data))
   }
     return(
          <div>

@@ -4,7 +4,18 @@ label{
 legend{
     color: black;
 }
+
+.box{
+background-color: bisque;
+width:500px;
+height: 500px;
+
+}
 .padding1
 {
-padding-right: 100px;
+    padding-left: 40px;
+}
+span
+{
+    font-family:cursive;
 }
