@@ -13,10 +13,7 @@ function Admin_home()
   
     function handleClick2()
     {
-        axios.get("http://localhost:9002/sendAnnouncement")
-        .then((res)=>{
-          alert(res.data)
-        })
+        history.push("/Bloodanc")
         // history.push('./admin_search')
     }
     function handleClick3()

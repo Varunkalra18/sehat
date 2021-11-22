@@ -80,7 +80,7 @@ def heartdisease():
         prediction = randomforest.predict(final_features)
         print("prediction",prediction)
         output = round(prediction[0], 2)
-        output = 1
+        output = "1"
         print("output",output)  
         return output      
         #if output == 0:
@@ -104,11 +104,21 @@ def diseaseprediction():
         print("____________________________________we are in prediction with post")
         # data recieving from form ...to be done
         #................hardcode............................
-        newdata = [[1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
-            0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]]
-        output = disease_model.predict(newdata) 
-        print(output) 
-        return output
+        # newdata = [[1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
+        #     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]]
+        # output = disease_model.predict(newdata) 
+        # print(output)
+        symptom1 = request.json["symptom1"]
+        print("1", symptom1)
+        symptom2 = request.json["symptom2"]
+        print("2", symptom2)
+        symptom3 = request.json["symptom3"]
+        print("3", symptom3)
+        symptom4 = request.json["symptom4"]
+        print("4", symptom4)
+        symptom5 = request.json["symptom5"] 
+        print("5", symptom5)
+        return "Posted successfull"
 
 # # disease prediction based on symptoms
 @app.route("/diabetes", methods=["GET","POST"])
@@ -117,17 +127,46 @@ def diabetesprediction():
     diabetes_model = pickle.load(open('./production/knn_diabetes.pkl', 'rb'))
     if request.method == "GET":
         output = [3]
-        print("____________________________________________________we are in pred")
+        print("____________________________________________________we are in diabities")
         return output
     else:
-        print("____________________________________we are in prediction with post")
+        print("____________________________________we are in prediction with post diabities")
         # data recieving from form ...to be done
         #................hardcode............................
         newdata = [[1, 1, 0, 0]]
-        output = diabetes_model.predict(newdata) 
-        print(output) 
+        output = diabetes_model.predict(newdata)
+        glucoseLevel = request.json['glucoseLevel']
+        insulin = request.json["Insulin"]
+        bmi = request.json["Bmi"]
+        age = request.json["Age"]
+        
         return output
-
+    
+@app.route("/corona", methods=["GET","POST"])
+def covid():
+    if(request.method == "GET"):
+        print("WE are in corona tracker")
+        return "come on"
+    else:
+        print("we are in covid post")
+        age = request.json["age"]
+        print("age", age)
+        gender = request.json["gender"]
+        print("gender", gender)
+        fever = request.json["fever"]
+        print("fever",fever)
+        drycough=request.json["drycough"]
+        print("dry", drycough)
+        sort = request.json["sort"]
+        print("sort", sort)
+        tired = request.json["tired"]
+        nasalc = request.json["nasalc"]
+        pain = request.json["pain"]
+        runose = request.json["runose"]
+        diah = request.json["diah"]
+        return "WOOO"
+    
+    
 if __name__ == "__main__":
     app.run(debug = True)
 
