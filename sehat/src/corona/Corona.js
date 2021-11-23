@@ -2,6 +2,7 @@ import React from "react";
 import './Corona.css'
 import {useState} from "react"
 import axios from "axios";
+import {useHistory} from "react-router"
 function Corona()
  {
 
@@ -33,9 +34,48 @@ function Corona()
         alert(res.data)
       })
     }
+    
+var history=useHistory();
+function handleClick3()
+{
+  history.push('/admin_home');
+}
      return(
+       <div>
+<div id="home">
+         <div className=" py-1"> 
+            <nav className="navbar navbar-expand-lg bg-light fixed-navi">
+            
+                {/* logo */}
+                <h1>
+                  <div className="navbar-brand font-weight-bold font-italic Click" onClick={handleClick3} ></div>
+                    <span style={{color:"blue"}}>S</span><span style={{color:"cyan"}}>ehat</span>
+                    <i className="fas fa-syringe" />
+                  
+                </h1>
+                {/* //logo */}
+                <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                <ul className="navbar-brand ml-lg-auto">
+                  <li className="nav-item active mt-lg-0 mt-3 text-dark mr-5 ">
+                      
+                    </li></ul>
+                    <ul className="navbar-nav ml-lg-auto">
+                    <li className= "nav-link Click">
+                      <div className="navbar-link Click" onClick={handleClick3}>Home
+                      </div>
+                    </li>
+                    
+                   
+                  </ul>
+                   </div>        
+            </nav>
+        
+      </div></div>
+
+
+       <div className="py-5 banner p1" style={{backgroundImage: 'url(https://www.wrappixel.com/demos/ui-kit/wrapkit/assets/images/form-banners/banner2/banner-bg.jpg)'}}>
             <div className="padding1">
-              <div className="box">
+              <div className="box" style={{border:"solid brown"}}>
                 <div className="row g-3">
                 <div className="col">
                 <label for="validationDefault01" class="form-label">Age</label>
@@ -72,9 +112,9 @@ function Corona()
       <label class="form-check-label" for="flexSwitchCheckDefault">Diarrhea</label>
       <input class="form-check-input ml-2" name="diah" onChange={change} value="1" type="checkbox" id="flexSwitchCheckDefault" />
     </div><br/>
-    <button type="button" class="btn btn-primary btn-block" onClick={submit}>submit</button>
+    <button type="button" class="btn btn-primary btn-lg" onClick={submit}>submit</button>
     </div>
-    </div>    
+    </div> </div>   </div>
                 
               
                 

@@ -47,15 +47,7 @@ color:blue;
         from, to { border-color: transparent }
         50% { border-color: orange; }
       }   
-.box{
-  box-sizing: border-box;
-  height: 150px;
-  width: 500px;
-  border: 2px solid red;
- text-align: center;
- padding: 1rem;
 
-}
 .box2{
   box-sizing: border-box;
   height: 150px;

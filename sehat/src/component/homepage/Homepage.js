@@ -17,20 +17,20 @@ function Homepage() {
  {
    history.push('/disease');
  }
- var history2=useHistory()
+ var history=useHistory()
  function handleClick2()
  {
-   history2.push('/symptoms');
+   history.push('/symptoms');
  }
- var history3=useHistory()
+ var history=useHistory()
  function handleClick3()
  {
-   history3.push('/diabities');
+   history.push('/diabities');
  }
- var history4=useHistory()
+ var history=useHistory()
  function handleClick4()
  {
-   history3.push('/corona');
+   history.push('/corona');
  }
  
   
@@ -65,7 +65,7 @@ function Homepage() {
             <div className="row mr-5">
               <div className="flex1">
               <div className="col-lg-6 w3ls-wthree-texts">
-              <div className="box">
+              <div className="box2">
                 <div className="row icons-screen">
                   <div className="col-3 screen-agile text-right">
                     <i className="fas fa-syringe" />
@@ -76,7 +76,7 @@ function Homepage() {
                     <p>You can predict the heart rate just by enetring basic details like heat rate using heart rate monitoring</p>
                   </div>
                 </div></div><br/>
-                <div className="box">
+                <div className="box2">
                   <div className="row icons-screen ">
                     <div className="col-3 screen-agile text-right mt">
                       <i className="fas fa-syringe" />
@@ -87,7 +87,7 @@ function Homepage() {
                       <p>Enter the synmptoms you are facing and we will predict your disease.</p>
                     </div>
                   </div></div><br/>
-                  <div className="box">
+                  <div className="box2">
                   <div className="row icons-screen ">
                     <div className="col-3 screen-agile text-right ">
                       <i className="fas fa-syringe" />
@@ -97,14 +97,14 @@ function Homepage() {
                     <h5>Diabites</h5></div>
                     <p >Enter the blood glucose level in the body and the model will do prediction for Diabites</p>
                   </div></div></div><br/>
-                  <div className="box">
+                  <div className="box2">
                   <div className="row icons-screen">
                     <div className="col-3 screen-agile text-right ">
                       <i className="fas fa-syringe" />
                     </div>
                   <div className="col-9 screen-agile-2  text-primary">
-                    <div onClick={handleClick4} className="Click"></div>
-                    <h5>Corona</h5>
+                    <div onClick={handleClick4} className="Click">
+                    <h5>Corona</h5></div>
                     <p>Ente the basic details like oxygen level</p>
                   </div></div></div>
                 </div>

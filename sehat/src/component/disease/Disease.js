@@ -58,10 +58,10 @@ function handleClick3()
     
   }
     return(
-         <div>
+         <div  className="banner p2" style={{backgroundImage: "url(https://media.istockphoto.com/photos/diagnostic-tools-get-a-digital-upgrade-picture-id1300505874?b=1&k=20&m=1300505874&s=170667a&w=0&h=hOrTwHO2kbh8a6Q6SFnh0vcyZytJdlMepDIwGTeWEFw=)"}}>
              <div id="home">
-          <div className="main-top py-1">
-            <nav className="navbar navbar-expand-lg navbar-light fixed-navi">
+         
+            <nav className="navbar navbar-expand-lg bg-dark fixed-navi">
             
                 {/* logo */}
                 <h1>
@@ -71,27 +71,23 @@ function handleClick3()
                   
                 </h1>
                 {/* //logo */}
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span className="navbar-toggler-icon" />
-                </button>
                 <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
                 <ul className="navbar-brand ml-lg-auto">
                   <li className="nav-item active mt-lg-0 mt-3 text-dark mr-5 ">
                       
                     </li></ul>
                     <ul className="navbar-nav ml-lg-auto">
-                    <li className="nav-item active mt-lg-0 mt-3">
+                    <li className= "nav-link Click">
                       <div className="navbar-link Click" onClick={handleClick3}>Home
-                        <span className="sr-only">(current)</span>
                       </div>
                     </li>
                     
                     <li className="nav-item mx-lg-4 my-lg-0 my-3">
-                    <div className="Click" onClick={handleClick1} >Blood Requirements
+                    <div className="nav-link Click" onClick={handleClick1} >Blood Requirements
                     </div>
                     </li>
                     <li className="nav-item">
-                      <div className="nav-link Click" onClick={handleClick2}>Sedule Appointment</div>
+                      <div className="nav-link Click " onClick={handleClick2}>Sedule Appointment</div>
                     </li>
                   </ul>
                   
@@ -99,7 +95,7 @@ function handleClick3()
                     <i className="fas fa-sign-in-alt mr-2 "/>Logout
                 </div> </div>        
             </nav>
-        </div>
+        
       </div>
       
         {/* Bootstrap CSS */}
@@ -113,8 +109,8 @@ function handleClick3()
           {/*Form*/}
           
         <fieldset>
-          <legend style={{color:"white"}}>Heart Disease Test Form</legend><br />
-          <div className="container">
+          <legend style={{color:"brown"}}>Heart Disease Test Form</legend><br />
+        <div className="c1">
           <div className="card card-body">
             <div className="form-group  row">
               <div className="p">
