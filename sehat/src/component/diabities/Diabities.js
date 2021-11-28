@@ -21,7 +21,7 @@ function Diabites()
     }
     const onc = ()=>{
         axios.post("http://127.0.0.1:5000/diabetes", diabData)
-        .then((res)=>alert("res", res.output))
+        .then((res)=>alert(res.data))
         
     }
    
