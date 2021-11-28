@@ -4,6 +4,7 @@
     import {useHistory} from 'react-router-dom'
     import userlogin from '../images/userlogin.svg'
     function Login() {
+       
         const history = useHistory()
         const [user, setUser] = useState({
             email:"",
@@ -48,10 +49,16 @@
             else{
                 alert("Enter Credentials Correctly")
             }
+           
+        }
+        const history2=useHistory();
+        function handleClick1()
+        {
+            history2.push('/forgot');
         }
         return (
             <div className="padding1">
-              
+              <img src={userlogin} alt="login"/>
                     
             
                 <div className="Login">
@@ -64,6 +71,7 @@
                         
                     </div>
                     <div className="Button" onClick={login}>Login</div>
+                    <span onClick={handleClick1} className="Click">Forget Password</span>
                     <h6>Or</h6>
                     <div className="Button" onClick={() => history.push("/register")}>Register</div>
                 </div>
