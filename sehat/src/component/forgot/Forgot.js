@@ -1,11 +1,11 @@
 import React from "react";
- import doctor from '../images/doctor.svg';
+ import forgot from '../images/forgot.svg';
  import './Frogot.css'
 function Forgot()
 {
     return(
         <div className="top">
-            <img src={doctor} alt="doctor" />
+            <img src={forgot} alt="forgot" />
                 
         <div className="register">
            

@@ -1,11 +1,11 @@
 import React from "react";
- import doctor from '../images/doctor.svg';
+ import reset from '../images/reset.svg';
  import './Reset.css'
 function Reset()
 {
     return(
         <div className="top2">
-            <img src={doctor} alt="doctor" />
+            <img src={reset} alt="doctor" />
                 
         <div className="register">
            
