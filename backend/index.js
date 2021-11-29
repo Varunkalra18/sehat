@@ -69,7 +69,7 @@ app.post("/login", (req,res)=>{
             console.log(user) ;
             if(password === user.password)
             {
-                const token = jwt.sign(user.email,"secret1999g13");
+                const token = jwt.sign(user[0].email,"secret1999g13");
                 console.log(token) ;
                 user = {...user,token} ;
                 console.log(user) ;
