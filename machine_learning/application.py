@@ -109,17 +109,35 @@ def diseaseprediction():
         #     0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]]
         # output = disease_model.predict(newdata) 
         # print(output)
+        a = ["1", "2", "3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33"]
+        d = dict.fromkeys(a, 0)
         symptom1 = request.json["symptom1"]
         print("1", symptom1)
+        d[symptom1] = 1
         symptom2 = request.json["symptom2"]
         print("2", symptom2)
+        d[symptom2] = 1
         symptom3 = request.json["symptom3"]
         print("3", symptom3)
+        d[symptom3] = 1
         symptom4 = request.json["symptom4"]
         print("4", symptom4)
+        d[symptom4] = 1
         symptom5 = request.json["symptom5"] 
         print("5", symptom5)
-        return "Posted successfull"
+        d[symptom5] = 1
+        
+        features = list(d.values())
+        print("features",features)
+        final_features = np.asarray(features).reshape(1, -1)
+        print("final features",final_features)
+        prediction = disease_model.predict(final_features)
+        print("prediction",prediction)
+        output = prediction[0]
+        #output = "1"
+        print("output",output)  
+        return output      
+        
 
 # # disease prediction based on symptoms
 @app.route("/diabetes", methods=["GET","POST"])
@@ -161,6 +179,7 @@ def diabetesprediction():
     
 @app.route("/corona", methods=["GET","POST"])
 def covid():
+    covid_model = pickle.load(open('./production/lr_covid.pkl', 'rb'))
     if(request.method == "GET"):
         print("WE are in corona tracker")
         return "come on"
@@ -174,14 +193,61 @@ def covid():
         print("fever",fever)
         drycough=request.json["drycough"]
         print("dry", drycough)
+        db = request.json["db"]
+        print("db", db)
         sort = request.json["sort"]
         print("sort", sort)
+
         tired = request.json["tired"]
+        print("tired", tired)
         nasalc = request.json["nasalc"]
+        print("nasalc", nasalc)
         pain = request.json["pain"]
+        print("pain", pain)
         runose = request.json["runose"]
+        print("runose", runose)
         diah = request.json["diah"]
-        return "WOOO"
+        print("diah", diah)
+        age0_9 = 0
+        age10_19 = 0
+        age20_24 = 0
+        age25_59 = 0
+        age60_ = 0
+        male = 0
+        female = 0
+        transgender = 0
+        age  = int(age)
+        if age <=9 :
+            age0_9 = 1
+        elif age <=19:
+            age10_19 = 1
+        elif age <=24:
+            age20_24 = 1
+        elif age <= 59:
+            age25_59 = 1
+        else:
+            age60_ = 1
+        if gender == "Male" :
+            male = 1
+        elif gender == "Female":
+            female = 1
+        elif gender == "Transgender":
+            transgender = 1        
+        
+        features = [fever,tired,drycough,db,sort,pain,nasalc,runose,diah,age0_9,age10_19,age20_24,age25_59,age60_,male,female,transgender]
+        print("features",features)
+        final_features = np.asarray(features).reshape(1, -1)
+        print("final features",final_features)
+        prediction = covid_model.predict(final_features)
+        print("prediction",prediction)
+        output = int(round(prediction[0], 2))
+        #output = "1"
+        print("output",output) 
+        if output == 1:
+            result = "The patient is likely to have covid!"
+        else:
+            result = "The patient is  not likely to have covid!"
+        return result
     
     
 if __name__ == "__main__":

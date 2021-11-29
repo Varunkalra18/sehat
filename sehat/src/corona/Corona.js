@@ -7,16 +7,17 @@ function Corona()
  {
 
     const [covid, setsym] = useState({
-      age:"",
+      age:"0",
       gender:"",
-      fever:"",
-      drycough:"",
-      sort:"",
-      tired:"",
-      nasalc:"",
-      pain:"",
-      runose:"",
-      diah:""
+      fever:"0",
+      drycough:"0",
+      db:"0",
+      sort:"0",
+      tired:"0",
+      nasalc:"0",
+      pain:"0",
+      runose:"0",
+      diah:"0"
 
     })
 
