@@ -2,11 +2,27 @@ import React from "react";
 import { useState } from "react";
 import axios from "axios"
 import './Disease.css'
-
+import { useHistory } from "react-router";
 
 function Disease()
 {
-  
+var history=useHistory();
+function handleClick1()
+{
+  history.push('/admin_search');
+}
+var history=useHistory();
+function handleClick2()
+{
+  history.push('/admin_shedule');
+}
+var history=useHistory();
+function handleClick3()
+{
+  history.push('/admin_home');
+}
+
+
   const [heartData, setData] = useState({
     age:"",
     gender:"",
@@ -35,23 +51,66 @@ function Disease()
     axios.post("http://127.0.0.1:5000/heartdiseaseprediction", heartData)
     .then(res=>alert(res.data))
   }
+  const logout = () => {
+    localStorage.clear() ;
+    console.log("we have logged out")
+    history.push("/admin_login")
+    
+  }
     return(
-         <div>
+         <div  className="banner p2" style={{backgroundImage: "url(https://media.istockphoto.com/photos/diagnostic-tools-get-a-digital-upgrade-picture-id1300505874?b=1&k=20&m=1300505874&s=170667a&w=0&h=hOrTwHO2kbh8a6Q6SFnh0vcyZytJdlMepDIwGTeWEFw=)"}}>
+             <div id="home">
+         
+            <nav className="navbar navbar-expand-lg bg-dark fixed-navi">
+            
+                {/* logo */}
+                <h1>
+                  <div className="navbar-brand font-weight-bold font-italic Click" onClick={handleClick3} ></div>
+                    <span>S</span>ehat
+                    <i className="fas fa-syringe" />
+                  
+                </h1>
+                {/* //logo */}
+                <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
+                <ul className="navbar-brand ml-lg-auto">
+                  <li className="nav-item active mt-lg-0 mt-3 text-dark mr-5 ">
+                      
+                    </li></ul>
+                    <ul className="navbar-nav ml-lg-auto">
+                    <li className= "nav-link Click">
+                      <div className="navbar-link Click" onClick={handleClick3}>Home
+                      </div>
+                    </li>
+                    
+                    <li className="nav-item mx-lg-4 my-lg-0 my-3">
+                    <div className="nav-link Click" onClick={handleClick1} >Blood Requirements
+                    </div>
+                    </li>
+                    <li className="nav-item">
+                      <div className="nav-link Click " onClick={handleClick2}>Sedule Appointment</div>
+                    </li>
+                  </ul>
+                  
+                  <div className="login-button Click ml-lg-5 mt-lg-0 mt-4 mb-lg-0 mb-3 text-primary" onClick={logout} data-toggle="modal" data-target="#exampleModalCenter1">
+                    <i className="fas fa-sign-in-alt mr-2 "/>Logout
+                </div> </div>        
+            </nav>
+        
+      </div>
+      
         {/* Bootstrap CSS */}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossOrigin="anonymous" />
         <title>Heart Disease Test</title>
         {/* Java Script */}	
         {/* Navbar*/}
-        <nav className="navbar navbar-dark bg-dark">
-          <span className="navbar-brand mb-0 h1">Heart Disease Test</span>
-        </nav>
+      
        
-          <br />
+          <br /><br/><br/><br/>
           {/*Form*/}
           
         <fieldset>
-          <legend>Heart Disease Test Form</legend><br />
-          <div className="container">
+          <legend style={{color:"brown"}}>Heart Disease Test Form</legend><br />
+        <div className="c1">
           <div className="card card-body">
             <div className="form-group  row">
               <div className="p">

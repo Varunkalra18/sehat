@@ -24,6 +24,8 @@ import Symptoms from './component/symptoms/Symtoms'
 import Diabities from './component/diabities/Diabities'
 import Corona from './corona/Corona'
 import List from "./component/admin_view/List"
+import Forgot from './component/forgot/Forgot'
+import Reset from './component/reset/Reset'
 
 function App() {
   return (
@@ -50,6 +52,8 @@ function App() {
            <Route path="/diabities"><Diabities></Diabities></Route>
            <Route path="/corona"><Corona></Corona></Route>
            <Route path="/Bloodanc"><Bloodanc></Bloodanc></Route>
+           <Route path="/forgot"><Forgot></Forgot></Route>
+           <Route path="/reset"><Reset></Reset></Route>
           <Redirect to="/"/>
         </Switch>
       </Router> }

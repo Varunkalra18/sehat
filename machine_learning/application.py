@@ -80,17 +80,18 @@ def heartdisease():
         prediction = randomforest.predict(final_features)
         print("prediction",prediction)
         output = round(prediction[0], 2)
-        output = "1"
+        #output = "1"
         print("output",output)  
-        return output      
-        #if output == 0:
-            #result = "The patient is not likely to have heart disease!"
+        #return output      
+        if output == 0:
+            result = "The patient is not likely to have heart disease!"
             #db.execute("INSERT INTO dashbord (dates, result) VALUES (:dates, :result)", dates = dates, result = result)
             # return render_template('predictionForm.html',result = 'The patient is not likely to have heart disease!')
-        #else:
-            #result = "The patient is likely to have heart disease!"
+        else:
+            result = "The patient is likely to have heart disease!"
             #db.execute("INSERT INTO dashbord (dates, result) VALUES (:dates, :result)", dates = dates, result = result)
             #return render_template('predictionForm.html',result = 'The patient is likely to have heart disease!')
+        return result
 
 # disease prediction based on symptoms
 @app.route("/diseaseprediction", methods=["GET","POST"])
@@ -131,16 +132,32 @@ def diabetesprediction():
         return output
     else:
         print("____________________________________we are in prediction with post diabities")
-        # data recieving from form ...to be done
-        #................hardcode............................
+        
         newdata = [[1, 1, 0, 0]]
         output = diabetes_model.predict(newdata)
         glucoseLevel = request.json['glucoseLevel']
+        print("glucoseLevel",glucoseLevel)
         insulin = request.json["Insulin"]
+        print("insulin",insulin)
         bmi = request.json["Bmi"]
+        print("BMI",bmi)
         age = request.json["Age"]
-        
-        return output
+        print("Age",age)
+
+        features = [glucoseLevel,insulin,bmi,age]
+        print("features",features)
+        final_features = np.asarray(features).reshape(1, -1)
+        print("final features",final_features)
+        prediction = diabetes_model.predict(final_features)
+        print("prediction",prediction)
+        output = int(round(prediction[0], 2))
+        #output = "1"
+        print("output",output) 
+        if output == 1:
+            result = "The patient is likely to have diabetes!"
+        else:
+            result = "The patient is  not likely to have diabetes!"
+        return result
     
 @app.route("/corona", methods=["GET","POST"])
 def covid():

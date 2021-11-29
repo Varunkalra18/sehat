@@ -48,7 +48,7 @@ function Register() {
     }
     return (
       <div className="padding2">
-           
+            <img src={doctor} alt="doctor" />
                 
         <div className="register">
            
