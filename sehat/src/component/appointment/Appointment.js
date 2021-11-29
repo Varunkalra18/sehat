@@ -1,11 +1,11 @@
-import react from 'react'
+import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import '../css/bootstrap.css'
 import '../css/fontawesome-all.css'
 import '../css/style.css'
 
-import { useHistory, withRouter } from 'react-router';
+import { useHistory} from 'react-router';
 
 
 let Appointment=()=>

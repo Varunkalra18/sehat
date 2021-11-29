@@ -14,14 +14,14 @@ function View()
   const his = ()=>{
     axios.get("http://localhost:9002/viewappointment")
   .then((res)=>{
-      if(res.data.code == 404)
+      if(res.data.code === 404)
       {
           alert("No Appointment Today")
       }
       else{
            
           //return(<List data = {res.data}/>)
-          var count = 0 ;
+         
           res.data.map((uses)=>{
             ap += uses
           })

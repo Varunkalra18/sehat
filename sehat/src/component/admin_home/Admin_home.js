@@ -1,12 +1,9 @@
  import React from 'react';
 import { useHistory } from 'react-router';
-import Admin_search from '../admin_search/Admin_search';
-import Admin_shedule from '../admin_shedule/Admin_shedule';
-import Disease from '../disease/Disease';
+
 import b3 from '../images/b3.png';
 import './Admin_home.css';
-import View from "../admin_view/View"
-import axios from 'axios';
+
 function Admin_home()
 {
     let history=useHistory()
@@ -36,10 +33,11 @@ function Admin_home()
       <nav className="navbar navbar-expand-lg navbar-light fixed-navi">
        
           {/* logo */}
-          <h1 className="navbar-brand font-weight-bold font-italic">
-              Sehat
-              <i className="fas fa-syringe" />
-          </h1>
+          <h1>
+                  <div className="navbar-brand font-weight-bold font-italic Click" onClick={handleClick3} ></div>
+                    <span style={{color:"blue"}}>S</span><span style={{color:"cyan"}}>ehat</span>
+                    <i className="fas fa-syringe" />
+                </h1>
           {/* //logo */}
          <div className="pad">
           <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">

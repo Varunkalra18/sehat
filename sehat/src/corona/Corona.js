@@ -41,6 +41,8 @@ function handleClick3()
 {
   history.push('/admin_home');
 }
+
+
      return(
        <div>
 <div id="home">
@@ -52,23 +54,10 @@ function handleClick3()
                   <div className="navbar-brand font-weight-bold font-italic Click" onClick={handleClick3} ></div>
                     <span style={{color:"blue"}}>S</span><span style={{color:"cyan"}}>ehat</span>
                     <i className="fas fa-syringe" />
-                  
                 </h1>
+               
                 {/* //logo */}
-                <div className="collapse navbar-collapse text-center" id="navbarSupportedContent">
-                <ul className="navbar-brand ml-lg-auto">
-                  <li className="nav-item active mt-lg-0 mt-3 text-dark mr-5 ">
-                      
-                    </li></ul>
-                    <ul className="navbar-nav ml-lg-auto">
-                    <li className= "nav-link Click">
-                      <div className="navbar-link Click" onClick={handleClick3}>Home
-                      </div>
-                    </li>
-                    
-                   
-                  </ul>
-                   </div>        
+                  
             </nav>
         
       </div></div>
@@ -111,7 +100,6 @@ function handleClick3()
       <label class="form-check-label mt-1" name=""for="flexSwitchCheckDefault">Runny-Nose</label>
       <input class="form-check-input ml-2" name="runose" onChange={change} value="1" type="checkbox" id="flexSwitchCheckDefault" />
       <label class="form-check-label" for="flexSwitchCheckDefault">Diarrhea</label>
-      <input class="form-check-input ml-2" name="diah" onChange={change} value="1" type="checkbox" id="flexSwitchCheckDefault" />
     </div><br/>
     <button type="button" class="btn btn-primary btn-lg" onClick={submit}>submit</button>
     </div>

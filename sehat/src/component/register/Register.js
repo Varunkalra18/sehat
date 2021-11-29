@@ -7,8 +7,8 @@ import doctor from '../images/doctor.svg';
 import '../..//../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 function Register() {
-    const [dropdown, setDropdownOpen] = useState(false);
-    const toggle = () => setDropdownOpen(prevState => !prevState);
+    
+   
     const history = useHistory()
     const [user, setUser] = useState({
         name:"",
@@ -34,7 +34,7 @@ function Register() {
     console.log(user)
     const register = () =>{
         console.log(user)
-        const {name,email,password,reEnterPassword,contactNo,utype,gender,pincode} = user
+        const {name,email,password,reEnterPassword,contactNo,gender,pincode} = user
         if(name && email && password && (password === reEnterPassword) && contactNo && gender && pincode)
         {
             axios.post("http://localhost:9002/register", user)
