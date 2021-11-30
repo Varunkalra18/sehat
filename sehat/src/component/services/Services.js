@@ -10,11 +10,7 @@ function Services()
         history1.push('./appointment')
     }
    
-    let history3=useHistory()
-    function handleClick3()
-    {
-        history3.push('./disease')
-    }
+    
     return(
         <div id="services">
         <div className="why-choose-agile pt-5" id="services">
@@ -60,7 +56,7 @@ function Services()
                   </div>
                   <div className="col-9 agile-why-text-2">
                     <h4 className="text-dark font-weight-bold mb-3">
-                        <div className="Click" onClick={handleClick3}>Disease prediction</div></h4>
+                    <a href="#diseases" > Disease Prediction</a></h4>
                     <p><a href>Predict your disease just by entering basic values .</a></p>
                   </div>
                 </div>

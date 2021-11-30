@@ -1,6 +1,5 @@
 import React from 'react'
 import './homepage.css'
-import b5 from '../images/b5.png'
 import '../css/bootstrap.css'
 import '../css/chocolat.css'
 import '../css/fontawesome-all.css'
@@ -17,17 +16,17 @@ function Homepage() {
  {
    history.push('/disease');
  }
- var history=useHistory()
+ 
  function handleClick2()
  {
    history.push('/symptoms');
  }
- var history=useHistory()
+ 
  function handleClick3()
  {
    history.push('/diabities');
  }
- var history=useHistory()
+ 
  function handleClick4()
  {
    history.push('/corona');
@@ -53,7 +52,7 @@ function Homepage() {
         {/* //services */}
         {/* //blog */}
         {/* treatments */}
-        <div className="screen-w3ls py-5">
+        <div className="screen-w3ls py-5" id="diseases">
           <div className="container py-xl-5 py-lg-3">
             <div className="w3ls-titles text-center mb-5">
               <h3 className="title">Diseases that you can predict</h3>

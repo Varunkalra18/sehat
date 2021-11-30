@@ -10,27 +10,24 @@ function View()
   const history = useHistory()
   
   const his = ()=>{
-    const userStr  = localStorage.getItem("user")
-      if (!userStr){
-        alert("Please Login first")
-      }
-      else{
-        const user = JSON.parse(userStr) ;
-        console.log(user)
-        let tokens = user.token ;
-        let toc = `Bearer ${tokens}`
-        axios.get("http://localhost:9002/viewappointment",{    
-          headers : {"Authorization" :toc}
-    })
-    .then((res)=>{
-      if(res.data.code == 404)
+    axios.get("http://localhost:9002/viewappointment")
+  .then((res)=>{
+      if(res.data.code === 404)
       {
           alert("No Appointment Today")
       }
       else{
-          console.log(res.data[1].regEmail)        
-          var ap = res.data
-          
+           
+          //return(<List data = {res.data}/>)
+         
+          res.data.map((uses)=>{
+            ap += uses
+          })
+          console.log(ap)
+          addAppoint({
+            ...appointed,
+            ap
+          })
       }
   return ;
   })

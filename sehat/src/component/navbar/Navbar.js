@@ -18,11 +18,7 @@ import './Navbar.css'
       {
         history2.push('/contact')
       }
-      let history3=useHistory()
-      function handleClick3()
-      {
-        history3.push('/admin_login')
-      }
+     
       const login = () => {
         history.push("/login")
       }
@@ -159,7 +155,9 @@ import './Navbar.css'
                       </Link>
                     </li>
                     <li className="nav-item mx-lg-4 my-lg-0 my-3">
-                      <Link className="nav-link" to='/donation'>Donation</Link>
+                    <a className="nav-link" href="#donation" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Donation
+                      </a>
                     </li>
                     <li className="nav-item ">
                       <a className="nav-link" href="#services" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

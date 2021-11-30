@@ -5,10 +5,10 @@ import Register from './component/register/Register'
 import Appointment from './component/appointment/Appointment'
 import Donation from './component/donation/Donation'
 import './App.css';
-import axios from 'axios';
+
 import Disease from './component/disease/Disease'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
-import '../node_modules/bootstrap/dist/js/bootstrap.min.js'
+
 import Bloodanc from "./component/admin_home/Bloodanc"
 import {BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import View from "./component/admin_view/View"
