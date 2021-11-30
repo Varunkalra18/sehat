@@ -7,36 +7,37 @@ import List from "./List"
 
 function View()
  {
-  const [appointed, addAppoint] = useState([
-    
-  ])
-  let ap = [] ;
+  const history = useHistory()
+  
   const his = ()=>{
-    axios.get("http://localhost:9002/viewappointment")
-  .then((res)=>{
+    const userStr  = localStorage.getItem("user")
+      if (!userStr){
+        alert("Please Login first")
+      }
+      else{
+        const user = JSON.parse(userStr) ;
+        console.log(user)
+        let tokens = user.token ;
+        let toc = `Bearer ${tokens}`
+        axios.get("http://localhost:9002/viewappointment",{    
+          headers : {"Authorization" :toc}
+    })
+    .then((res)=>{
       if(res.data.code == 404)
       {
           alert("No Appointment Today")
       }
       else{
-           
-          //return(<List data = {res.data}/>)
-          var count = 0 ;
-          res.data.map((uses)=>{
-            ap += uses
-          })
-          console.log(ap)
-          addAppoint({
-            ...appointed,
-            ap
-          })
+          console.log(res.data[1].regEmail)        
+          var ap = res.data
+          
       }
-  })
-  //console.log("aaa",appointed[1])
   return ;
+  })
+}
   }
 //his()
-    const history = useHistory()
+   
     const book = () => {
         history.push("/admin_shedule")
     }
@@ -71,17 +72,12 @@ function View()
                </div>
             <div className="col-lg-4 agileits-w3layouts-grid img text-center spacing">
                 <img src={b3} alt=" " className="img-fluid" />
-              </div>
-              <hr/>
-              <button class="btn btn-success" onClick= {his}>Show</button>
-              {appointed.map((use)=>{
-                return(<div><List useg = {use}/></div>)
-              })}
-              
-              
-            
             </div>
-
+              <hr/>
+              
+              <button class="btn btn-success" onClick= {his}>Show</button>
+              
+            </div>
      )
- }
+  }
  export default View;

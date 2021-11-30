@@ -3,6 +3,7 @@ import cors from "cors"
 import mongoose from "mongoose"
 import jwt from 'jsonwebtoken'
 import  auth from './middleware.js'
+import adAuth from './adAuth.js'
 // const nodemailer = require("nodemailer")
 import nodemailer from "nodemailer"
 var transporter = nodemailer.createTransport({
@@ -66,10 +67,10 @@ app.post("/login", (req,res)=>{
 
         if(!err)
         {
-            console.log(user) ;
+            console.log("user------>", user) ;
             if(password === user.password)
             {
-                const token = jwt.sign(user[0].email,"secret1999g13");
+                const token = jwt.sign(user.utype,"secret1999g13");
                 console.log(token) ;
                 user = {...user,token} ;
                 console.log(user) ;
@@ -192,7 +193,7 @@ app.post("/adminLogin", (req,res) => {
     }
     const {email, password} = req.body
     if(email === users_data.email && password === users_data.password){
-        const token = jwt.sign(users_data, "secretg13")
+        const token = jwt.sign(users_data.type, "secretg13")
         console.log(token)
         var usered = {...users_data,token}
         console.log(usered)
@@ -203,7 +204,7 @@ app.post("/adminLogin", (req,res) => {
         res.send({code:404, message:"Invalid Credentials"})
     }
 })
-app.get("/viewappointment", (req,res)=>{
+app.get("/viewappointment", adAuth, (req,res)=>{
     console.log("here in view appointment")
     appoint.find({}, (err,data) => {
         console.log(err)
@@ -216,7 +217,17 @@ app.get("/viewappointment", (req,res)=>{
         }
     })
 })
-app.post("/sendAnnouncement", (req,res) =>{
+app.post("/deleteappointment", adAuth, async (req,res)=>{
+    const _id = req.body._id
+    console.log("email", _id)
+
+        const result = await appoint.findByIdAndDelete( { _id : _id } )
+
+    
+    res.send("Deleted")
+
+})
+app.post("/sendAnnouncement",  (req,res) =>{
     console.log("WE are in send Announcement")
     const {bloodG} = req.body
     // console.log(bloodG)

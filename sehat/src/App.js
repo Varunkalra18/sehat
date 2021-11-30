@@ -24,6 +24,7 @@ import Symptoms from './component/symptoms/Symtoms'
 import Diabities from './component/diabities/Diabities'
 import Corona from './corona/Corona'
 import List from "./component/admin_view/List"
+import AppoinView from "./component/admin_view/AppoinView"
 import Forgot from './component/forgot/Forgot'
 import Reset from './component/reset/Reset'
 
@@ -46,6 +47,7 @@ function App() {
           <Route path="/admin_home"><Admin_home></Admin_home></Route>
           <Route path="/admin_login"><Admin_login></Admin_login></Route>
           <Route path="/view"><View/></Route>
+          <Route path="/Appointview"><AppoinView/></Route>
           <Route path="/list"><List/></Route>
           <Route path="/view_appointment"><View_appointment></View_appointment></Route>
           <Route path="/symptoms"><Symptoms></Symptoms></Route>

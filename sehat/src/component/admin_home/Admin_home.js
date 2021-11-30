@@ -10,7 +10,11 @@ import axios from 'axios';
 function Admin_home()
 {
     let history=useHistory()
-  
+    var usert = localStorage.getItem("user")
+    if(!usert)
+    {
+      return("Access Denied")
+    }
     function handleClick2()
     {
         history.push("/Bloodanc")
@@ -25,7 +29,7 @@ function Admin_home()
       history.push('./admin_shedule')
     }
     const check = () => {
-      history.push("/view")
+      history.push("/Appointview")
     }
     return(
 
